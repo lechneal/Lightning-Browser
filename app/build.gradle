@@ -7,19 +7,16 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
+        applicationId "com.lechneralexander.privatebrowser"
         minSdkVersion 14
         targetSdkVersion 23
-        versionName "4.3.3"
+        versionCode 1
+        versionName "0.9"
         generatedDensities = []
     }
 
     aaptOptions {
         additionalParameters "--no-version-vectors"
-    }
-
-    sourceSets {
-        lightningPlus.setRoot('src/LightningPlus')
-        lightningLite.setRoot('src/LightningLite')
     }
 
     buildTypes {
@@ -33,20 +30,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles 'proguard-project.txt'
-        }
-    }
-
-    productFlavors {
-        lightningPlus {
-            buildConfigField "boolean", "FULL_VERSION", "true"
-            applicationId "acr.browser.lightning"
-            versionCode 88
-        }
-
-        lightningLite {
-            buildConfigField "boolean", "FULL_VERSION", "false"
-            applicationId "acr.browser.barebones"
-            versionCode 90
         }
     }
 

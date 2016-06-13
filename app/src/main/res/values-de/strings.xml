@@ -17,7 +17,6 @@
 
 <resources>
 
-    <string name="app_name">Lightning</string>
     <string name="action_new_tab">Neuer Tab</string>
     <string name="action_share">Teilen</string>
     <string name="action_history">Verlauf</string>
@@ -216,4 +215,6 @@
     <string name="use_i2p_prompt">Es sieht aus, als ob I2P installiert wäre. Möchten Sie es verwenden?</string>
     <string name="text_encoding">Textcodierung</string>
     <string name="tabs_in_drawer">Tabs in Drawer anzeigen</string>
+    <string name="exit">Beenden</string>
+    <string name="exit_question">Alle Tabs schließen und alle private Daten löschen?</string>
 </resources>

@@ -17,7 +17,6 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
-    <string name="app_name">Lightning</string>
     <string name="action_new_tab">New Tab</string>
     <string name="action_share">Share</string>
     <string name="action_history">History</string>
@@ -242,4 +241,13 @@
     <string name="debug_title">Debug Settings</string>
     <string name="debug_leak_canary">LeakCanary</string>
     <string name="app_restart">Please restart the app for the change to take effect.</string>
+    <string name="app_name">Internet</string>
+    <string name="lightning_name">Lightning-Browser</string>
+    <string name="url_lightning">https://github.com/anthonycr/Lightning-Browser</string>
+    <string name="action_open_lightning">Based on LightningBrowser by Anthony Restaino</string>
+    <string name="finish_on_pause">Close app if moved to background</string>
+    <string name="exit">Exit</string>
+    <string name="exit_question">Are you shure you want to close all tabs and delete all private data?</string>
+    <string name="title_clear_all">Delete private data</string>
+    <string name="dialog_clear_all">Delete all private data: cookies, cache, webstorage etc.</string>
 </resources>

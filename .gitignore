@@ -4,6 +4,7 @@
 /local.properties
 /.idea/workspace.xml
 /build
+/external/netcipher/*
 
 # External tool builders
 .externalToolBuilders/

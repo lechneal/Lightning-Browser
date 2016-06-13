@@ -4,11 +4,11 @@
 
     <PreferenceCategory android:title="@string/settings_about">
         <Preference
-            android:summary="@string/url_twitter"
-            android:title="@string/action_follow_me">
+            android:summary="@string/url_lightning"
+            android:title="@string/action_open_lightning">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://twitter.com/RestainoAnthony">
+                android:data="https://github.com/anthonycr/Lightning-Browser">
                 <extra
                     android:name="SOURCE"
                     android:value="SELF" />
@@ -21,7 +21,7 @@
     <PreferenceCategory android:title="@string/licenses">
         <Preference
             android:summary="@string/mpl_license"
-            android:title="@string/app_name">
+            android:title="@string/lightning_name">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="http://www.mozilla.org/MPL/2.0/">
