@@ -1,4 +1,4 @@
 include ':app'
-include ':libnetcipher'
+//include ':libnetcipher'
 
-project(':libnetcipher').projectDir = new File(rootProject.projectDir, 'external/netcipher/libnetcipher')
+//project(':libnetcipher').projectDir = new File(rootProject.projectDir, 'external/netcipher/libnetcipher')

@@ -5,7 +5,6 @@ package com.lechneralexander.privatebrowser.fragment;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,12 +14,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.webkit.WebView;
 
-import javax.inject.Inject;
-
 import com.lechneralexander.privatebrowser.R;
 import com.lechneralexander.privatebrowser.app.BrowserApp;
-import com.lechneralexander.privatebrowser.database.BookmarkManager;
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
 import com.lechneralexander.privatebrowser.utils.Utils;
 import com.lechneralexander.privatebrowser.utils.WebUtils;
 import com.lechneralexander.privatebrowser.view.LightningView;
@@ -46,7 +41,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     private Activity mActivity;
     private Handler mMessageHandler;
 
-    @Inject HistoryDatabase mHistoryDatabase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -127,9 +121,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
             case SETTINGS_CLEARCACHE:
                 clearCache();
                 return true;
-            case SETTINGS_CLEARHISTORY:
-                clearHistoryDialog();
-                return true;
             case SETTINGS_CLEARCOOKIES:
                 clearCookiesDialog();
                 return true;
@@ -150,7 +141,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
                                 WebUtils.clearCache(getActivity());
-                                clearCache();
                                 WebUtils.clearWebStorage();
                                 BrowserApp.getTaskThread().execute(new Runnable() {
                                     @Override
@@ -158,31 +148,14 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
                                         clearCookies();
                                     }
                                 });
-                                BrowserApp.getIOThread().execute(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        clearHistory();
-                                    }
-                                });
-                            }
-                        })
-                .setNegativeButton(getResources().getString(R.string.action_no), null).show();
-    }
-
-    private void clearHistoryDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-        builder.setTitle(getResources().getString(R.string.title_clear_history));
-        builder.setMessage(getResources().getString(R.string.dialog_history))
-                .setPositiveButton(getResources().getString(R.string.action_yes),
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                BrowserApp.getIOThread().execute(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        clearHistory();
-                                    }
-                                });
+                                Utils.trimCache(getActivity());
+                                Utils.showSnackbar(getActivity(), R.string.message_clear_privatedata);
+//                                BrowserApp.getIOThread().execute(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        clearHistory();
+//                                    }
+//                                });
                             }
                         })
                 .setNegativeButton(getResources().getString(R.string.action_no), null).show();
@@ -214,10 +187,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
         Utils.showSnackbar(mActivity, R.string.message_cache_cleared);
     }
 
-    private void clearHistory() {
-        WebUtils.clearHistory(getActivity(), mHistoryDatabase);
-        mMessageHandler.sendEmptyMessage(1);
-    }
 
     private void clearCookies() {
         WebUtils.clearCookies(getActivity());

@@ -17,7 +17,6 @@ import com.lechneralexander.privatebrowser.fragment.PrivacySettingsFragment;
 import com.lechneralexander.privatebrowser.fragment.TabsFragment;
 import com.lechneralexander.privatebrowser.search.SuggestionsAdapter;
 import com.lechneralexander.privatebrowser.utils.AdBlock;
-import com.lechneralexander.privatebrowser.utils.ProxyUtils;
 import com.lechneralexander.privatebrowser.view.LightningView;
 import com.lechneralexander.privatebrowser.view.LightningWebClient;
 import dagger.Component;
@@ -43,8 +42,6 @@ public interface AppComponent {
     void inject(LightningPreferenceFragment fragment);
 
     void inject(BrowserApp app);
-
-    void inject(ProxyUtils proxyUtils);
 
     void inject(LightningWebClient webClient);
 

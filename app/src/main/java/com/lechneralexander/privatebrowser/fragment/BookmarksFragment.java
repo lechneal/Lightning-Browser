@@ -116,7 +116,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
         final Context context = getContext();
         mTabsManager = ((UIController) context).getTabModel();
         mIsIncognito = arguments.getBoolean(INCOGNITO_MODE, false);
-        boolean darkTheme = mPreferenceManager.getUseTheme() != 0 || mIsIncognito;
+        boolean darkTheme = mPreferenceManager.getUseTheme() != 0 /*|| mIsIncognito*/;
         mWebpageBitmap = ThemeUtils.getThemedBitmap(context, R.drawable.ic_webpage, darkTheme);
         mFolderBitmap = ThemeUtils.getThemedBitmap(context, R.drawable.ic_folder, darkTheme);
         mIconColor = darkTheme ? ThemeUtils.getIconDarkThemeColor(context) :
@@ -176,7 +176,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
             }
         });
         setupNavigationButton(view, R.id.action_add_bookmark, R.id.icon_star);
-        setupNavigationButton(view, R.id.action_toggle_desktop, R.id.icon_desktop);
+//        setupNavigationButton(view, R.id.action_toggle_desktop, R.id.icon_desktop);
 
         initBookmarkManager().subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.main())
@@ -206,7 +206,7 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
         if (activity == null) {
             return;
         }
-        boolean darkTheme = mPreferenceManager.getUseTheme() != 0 || mIsIncognito;
+        boolean darkTheme = mPreferenceManager.getUseTheme() != 0 /*|| mIsIncognito*/;
         mWebpageBitmap = ThemeUtils.getThemedBitmap(activity, R.drawable.ic_webpage, darkTheme);
         mFolderBitmap = ThemeUtils.getThemedBitmap(activity, R.drawable.ic_folder, darkTheme);
         mIconColor = darkTheme ? ThemeUtils.getIconDarkThemeColor(activity) :
@@ -335,14 +335,14 @@ public class BookmarksFragment extends Fragment implements View.OnClickListener,
             case R.id.action_add_bookmark:
                 mEventBus.post(new BookmarkEvents.ToggleBookmarkForCurrentPage());
                 break;
-            case R.id.action_toggle_desktop:
-                LightningView current = mTabsManager.getCurrentTab();
-                if (current != null) {
-                    current.toggleDesktopUA(getActivity());
-                    current.reload();
-                    // TODO add back drawer closing
-                }
-                break;
+//            case R.id.action_toggle_desktop:
+//                LightningView current = mTabsManager.getCurrentTab();
+//                if (current != null) {
+//                    current.toggleDesktopUA(getActivity());
+//                    current.reload();
+//                    // TODO add back drawer closing
+//                }
+//                break;
             default:
                 break;
         }

@@ -29,9 +29,9 @@ import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
-import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 
+import com.lechneralexander.privatebrowser.utils.ConfigUtils;
 import com.squareup.otto.Bus;
 
 import java.io.File;
@@ -43,7 +43,6 @@ import javax.inject.Inject;
 import com.lechneralexander.privatebrowser.app.BrowserApp;
 import com.lechneralexander.privatebrowser.constant.BookmarkPage;
 import com.lechneralexander.privatebrowser.constant.Constants;
-import com.lechneralexander.privatebrowser.constant.HistoryPage;
 import com.lechneralexander.privatebrowser.constant.StartPage;
 import com.lechneralexander.privatebrowser.controller.UIController;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
@@ -55,7 +54,6 @@ import com.lechneralexander.privatebrowser.react.Observable;
 import com.lechneralexander.privatebrowser.react.Schedulers;
 import com.lechneralexander.privatebrowser.react.Subscriber;
 import com.lechneralexander.privatebrowser.react.OnSubscribe;
-import com.lechneralexander.privatebrowser.utils.ProxyUtils;
 import com.lechneralexander.privatebrowser.utils.UrlUtils;
 import com.lechneralexander.privatebrowser.utils.Utils;
 
@@ -108,7 +106,6 @@ public class LightningView {
     @Inject Bus mEventBus;
     @Inject PreferenceManager mPreferences;
     @Inject LightningDialogBuilder mBookmarksDialogBuilder;
-    @Inject ProxyUtils mProxyUtils;
     @Inject BookmarkManager mBookmarkManager;
 
     public LightningView(@NonNull Activity activity, @Nullable String url, boolean isIncognito) {
@@ -264,7 +261,7 @@ public class LightningView {
             settings.setGeolocationEnabled(false);
         }
 
-        setUserAgent(context, mPreferences.getUserAgentChoice());
+        setUserAgent(context, mPreferences.getUserAgentChoice(ConfigUtils.getDefaultUserAgent(context)));
 
         if (mPreferences.getSavePasswordsEnabled() && !mIsIncognitoTab) {
             if (API < Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -472,7 +469,7 @@ public class LightningView {
         if (!mToggleDesktop)
             mWebView.getSettings().setUserAgentString(Constants.DESKTOP_USER_AGENT);
         else
-            setUserAgent(context, mPreferences.getUserAgentChoice());
+            setUserAgent(context, mPreferences.getUserAgentChoice(ConfigUtils.getDefaultUserAgent(context)));
         mToggleDesktop = !mToggleDesktop;
     }
 
@@ -772,11 +769,6 @@ public class LightningView {
      * proxy must start before the load occurs.
      */
     public synchronized void reload() {
-        // Check if configured proxy is available
-        if (!mProxyUtils.isProxyReady()) {
-            // User has been notified
-            return;
-        }
 
         if (mWebView != null) {
             mWebView.reload();
@@ -936,14 +928,7 @@ public class LightningView {
         final WebView.HitTestResult result = mWebView.getHitTestResult();
         String currentUrl = mWebView.getUrl();
         if (currentUrl != null && UrlUtils.isSpecialUrl(currentUrl)) {
-            if (currentUrl.endsWith(HistoryPage.FILENAME)) {
-                if (url != null) {
-                    mBookmarksDialogBuilder.showLongPressedHistoryLinkDialog(mActivity, url);
-                } else if (result != null && result.getExtra() != null) {
-                    final String newUrl = result.getExtra();
-                    mBookmarksDialogBuilder.showLongPressedHistoryLinkDialog(mActivity, newUrl);
-                }
-            } else if (currentUrl.endsWith(BookmarkPage.FILENAME)) {
+            if (currentUrl.endsWith(BookmarkPage.FILENAME)) {
                 if (url != null) {
                     mBookmarksDialogBuilder.showLongPressedDialogForBookmarkUrl(mActivity, url);
                 } else if (result != null && result.getExtra() != null) {
@@ -1028,10 +1013,6 @@ public class LightningView {
      *            the WebView.
      */
     public synchronized void loadUrl(@NonNull String url) {
-        // Check if configured proxy is available
-        if (!mProxyUtils.isProxyReady()) {
-            return;
-        }
 
         if (mWebView != null) {
             mWebView.loadUrl(url, mRequestHeaders);

@@ -12,8 +12,6 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewDatabase;
 
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
-
 /**
  * Copyright 8/4/2015 Anthony Restaino
  */
@@ -35,8 +33,7 @@ public class WebUtils {
         WebStorage.getInstance().deleteAllData();
     }
 
-    public static void clearHistory(@NonNull Context context, @NonNull HistoryDatabase historyDatabase) {
-        historyDatabase.deleteHistory();
+    public static void clearHistory(@NonNull Context context) {
         WebViewDatabase m = WebViewDatabase.getInstance(context);
         m.clearFormData();
         m.clearHttpAuthUsernamePassword();

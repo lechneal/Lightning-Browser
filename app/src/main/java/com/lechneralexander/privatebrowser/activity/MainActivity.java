@@ -16,15 +16,6 @@ import com.lechneralexander.privatebrowser.react.Subscriber;
 @SuppressWarnings("deprecation")
 public class MainActivity extends IncognitoActivity {
 
-    @Override
-    public Observable<Void> updateCookiePreference() {
-        return super.updateCookiePreference();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {

@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 
 import com.squareup.otto.Bus;
 
-import net.i2p.android.ui.I2PAndroidHelper;
 
 import javax.inject.Singleton;
 
@@ -39,11 +38,5 @@ public class AppModule {
         return mBus;
     }
 
-    @NonNull
-    @Provides
-    @Singleton
-    public I2PAndroidHelper provideI2PAndroidHelper() {
-        return new I2PAndroidHelper(mApp.getApplicationContext());
-    }
 
 }

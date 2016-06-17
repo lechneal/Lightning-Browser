@@ -18,9 +18,6 @@
             android:defaultValue="true"
             android:key="cb_javascript"
             android:title="@string/java" />
-        <Preference
-            android:key="proxy"
-            android:title="@string/http_proxy" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="cb_colormode"

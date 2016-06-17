@@ -53,17 +53,6 @@
             </intent>
         </Preference>
         <Preference
-            android:summary="@string/license_gnu"
-            android:title="@string/library_netcipher">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://www.gnu.org/licenses/lgpl.html">
-                <extra
-                    android:name="SOURCE"
-                    android:value="SELF" />
-            </intent>
-        </Preference>
-        <Preference
             android:summary="@string/apache"
             android:title="@string/snacktory">
             <intent

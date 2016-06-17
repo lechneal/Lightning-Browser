@@ -23,10 +23,8 @@ import com.lechneralexander.privatebrowser.R;
 import com.lechneralexander.privatebrowser.app.BrowserApp;
 import com.lechneralexander.privatebrowser.constant.BookmarkPage;
 import com.lechneralexander.privatebrowser.constant.Constants;
-import com.lechneralexander.privatebrowser.constant.HistoryPage;
 import com.lechneralexander.privatebrowser.constant.StartPage;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
 import com.lechneralexander.privatebrowser.preference.PreferenceManager;
 import com.lechneralexander.privatebrowser.react.Action;
 import com.lechneralexander.privatebrowser.react.Observable;
@@ -58,7 +56,6 @@ public class TabsManager {
 
     @Inject PreferenceManager mPreferenceManager;
     @Inject BookmarkManager mBookmarkManager;
-    @Inject HistoryDatabase mHistoryManager;
     @Inject Bus mEventBus;
     @Inject Application mApp;
 
@@ -117,6 +114,7 @@ public class TabsManager {
                 // in order to protect user privacy
                 if (incognito) {
                     newTab(activity, null, true);
+                    finishInitialization();
                     subscriber.onComplete();
                     return;
                 }
@@ -154,8 +152,6 @@ public class TabsManager {
                         new BookmarkPage(tab, activity, mBookmarkManager).load();
                     } else if (UrlUtils.isStartPageUrl(url)) {
                         new StartPage(tab, mApp).load();
-                    } else if (UrlUtils.isHistoryUrl(url)) {
-                        new HistoryPage(tab, mApp, mHistoryManager).load();
                     }
                 } else if (tab.getWebView() != null) {
                     tab.getWebView().restoreState(item);

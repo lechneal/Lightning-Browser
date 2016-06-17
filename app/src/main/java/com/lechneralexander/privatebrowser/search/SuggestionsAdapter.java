@@ -30,7 +30,6 @@ import javax.inject.Inject;
 import com.lechneralexander.privatebrowser.R;
 import com.lechneralexander.privatebrowser.app.BrowserApp;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
 import com.lechneralexander.privatebrowser.database.HistoryItem;
 import com.lechneralexander.privatebrowser.preference.PreferenceManager;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;
@@ -60,7 +59,6 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable, Sugge
     @NonNull private final Drawable mHistoryDrawable;
     @NonNull private final Drawable mBookmarkDrawable;
 
-    @Inject HistoryDatabase mDatabaseHandler;
     @Inject BookmarkManager mBookmarkManager;
     @Inject PreferenceManager mPreferenceManager;
 
@@ -244,11 +242,6 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable, Sugge
                 }
             }
 
-            List<HistoryItem> historyList = mDatabaseHandler.findItemsContaining(constraint.toString());
-            synchronized (mHistory) {
-                mHistory.clear();
-                mHistory.addAll(historyList);
-            }
             results.count = 1;
             return results;
         }

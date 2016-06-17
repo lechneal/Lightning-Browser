@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.webkit.WebView;
 
-import com.squareup.leakcanary.LeakCanary;
 import com.squareup.otto.Bus;
 
 import java.util.concurrent.Executor;
@@ -37,20 +36,17 @@ public class BrowserApp extends Application {
         mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
         mAppComponent.inject(this);
 
-        if (mPreferenceManager.getUseLeakCanary() && !isRelease()) {
-            LeakCanary.install(this);
-        }
         if (!isRelease() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
 
-        registerActivityLifecycleCallbacks(new MemoryLeakUtils.LifecycleAdapter() {
-            @Override
-            public void onActivityDestroyed(Activity activity) {
-                Log.d(TAG, "Cleaning up after the Android framework");
-                MemoryLeakUtils.clearNextServedView(BrowserApp.this);
-            }
-        });
+//        registerActivityLifecycleCallbacks(new MemoryLeakUtils.LifecycleAdapter() {
+//            @Override
+//            public void onActivityDestroyed(Activity activity) {
+//                Log.d(TAG, "Cleaning up after the Android framework");
+//                MemoryLeakUtils.clearNextServedView(BrowserApp.this);
+//            }
+//        });
     }
 
     @NonNull

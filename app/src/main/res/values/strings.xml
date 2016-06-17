@@ -250,4 +250,7 @@
     <string name="exit_question">Are you shure you want to close all tabs and delete all private data?</string>
     <string name="title_clear_all">Delete private data</string>
     <string name="dialog_clear_all">Delete all private data: cookies, cache, webstorage etc.</string>
+    <string name="orbot_not_supported">Orbot not supported!</string>
+    <string name="i2p_not_supported">I2P not supported</string>
+    <string name="message_clear_privatedata">All private data deleted</string>
 </resources>

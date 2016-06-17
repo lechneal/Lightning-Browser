@@ -99,7 +99,7 @@ public class StartPage extends AsyncTask<Void, Void, Void> {
         switch (mPreferenceManager.getSearchChoice()) {
             case 0:
                 // CUSTOM SEARCH
-                icon = "file:///android_asset/lightning.png";
+                icon = "file:///android_asset/privatebrowser.png";
                 searchUrl = mPreferenceManager.getSearchUrl();
                 break;
             case 1:

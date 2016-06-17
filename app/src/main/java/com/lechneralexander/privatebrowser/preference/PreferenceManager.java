@@ -227,8 +227,8 @@ public class PreferenceManager {
         return mPrefs.getInt(Name.PROXY_CHOICE, Constants.NO_PROXY);
     }
 
-    public int getUserAgentChoice() {
-        return mPrefs.getInt(Name.USER_AGENT, 1);
+    public int getUserAgentChoice(int defValue) {
+        return mPrefs.getInt(Name.USER_AGENT, defValue);
     }
 
     @Nullable
@@ -250,7 +250,7 @@ public class PreferenceManager {
     }
 
     public boolean getDoNotTrackEnabled() {
-        return mPrefs.getBoolean(Name.DO_NOT_TRACK, false);
+        return mPrefs.getBoolean(Name.DO_NOT_TRACK, true);
     }
 
     public boolean getRemoveIdentifyingHeadersEnabled() {

@@ -27,7 +27,6 @@ import com.lechneralexander.privatebrowser.bus.BrowserEvents;
 import com.lechneralexander.privatebrowser.constant.BookmarkPage;
 import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
 import com.lechneralexander.privatebrowser.database.HistoryItem;
 import com.lechneralexander.privatebrowser.preference.PreferenceManager;
 import com.lechneralexander.privatebrowser.utils.Utils;
@@ -41,7 +40,6 @@ public class LightningDialogBuilder {
 
     @Inject BookmarkManager mBookmarkManager;
     @Inject PreferenceManager mPreferenceManager;
-    @Inject HistoryDatabase mHistoryDatabase;
     @Inject Bus mEventBus;
 
     @Inject
@@ -217,7 +215,7 @@ public class LightningDialogBuilder {
                         mEventBus.post(new BrowserEvents.OpenUrlInNewTab(url));
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
-                        mHistoryDatabase.deleteHistoryItem(url);
+                        //mHistoryDatabase.deleteHistoryItem(url);
                         // openHistory();
                         mEventBus.post(new BrowserEvents.OpenHistoryInCurrentTab());
                         break;

@@ -40,7 +40,6 @@ import com.lechneralexander.privatebrowser.controller.UIController;
 import com.lechneralexander.privatebrowser.utils.AdBlock;
 import com.lechneralexander.privatebrowser.utils.IntentUtils;
 import com.lechneralexander.privatebrowser.utils.Preconditions;
-import com.lechneralexander.privatebrowser.utils.ProxyUtils;
 import com.lechneralexander.privatebrowser.utils.Utils;
 
 public class LightningWebClient extends WebViewClient {
@@ -50,7 +49,6 @@ public class LightningWebClient extends WebViewClient {
     @NonNull private final UIController mUIController;
     @NonNull private final IntentUtils mIntentUtils;
 
-    @Inject ProxyUtils mProxyUtils;
     @Inject AdBlock mAdBlock;
 
     LightningWebClient(@NonNull Activity activity, @NonNull LightningView lightningView) {
@@ -284,11 +282,6 @@ public class LightningWebClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(@NonNull WebView view, @NonNull String url) {
-        // Check if configured proxy is available
-        if (!mProxyUtils.isProxyReady()) {
-            // User has been notified
-            return true;
-        }
 
         Map<String, String> headers = mLightningView.getRequestHeaders();
 

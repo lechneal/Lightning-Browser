@@ -5,7 +5,7 @@ package com.lechneralexander.privatebrowser.fragment;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.CheckBoxPreference;
@@ -24,13 +24,11 @@ import android.widget.LinearLayout;
 import com.lechneralexander.privatebrowser.R;
 import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.download.DownloadHandler;
-import com.lechneralexander.privatebrowser.utils.ProxyUtils;
+import com.lechneralexander.privatebrowser.utils.ConfigUtils;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;
-import com.lechneralexander.privatebrowser.utils.Utils;
 
 public class GeneralSettingsFragment extends LightningPreferenceFragment implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
-    private static final String SETTINGS_PROXY = "proxy";
     private static final String SETTINGS_ADS = "cb_ads";
     private static final String SETTINGS_IMAGES = "cb_images";
     private static final String SETTINGS_JAVASCRIPT = "cb_javascript";
@@ -43,7 +41,6 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
 
     private Activity mActivity;
     private static final int API = android.os.Build.VERSION.SDK_INT;
-    private CharSequence[] mProxyChoices;
     private Preference proxy, useragent, downloadloc, home, searchengine;
     private String mDownloadLocation;
     private int mAgentChoice;
@@ -61,7 +58,6 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
     }
 
     private void initPrefs() {
-        proxy = findPreference(SETTINGS_PROXY);
         useragent = findPreference(SETTINGS_USERAGENT);
         downloadloc = findPreference(SETTINGS_DOWNLOAD);
         home = findPreference(SETTINGS_HOME);
@@ -73,7 +69,6 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
         CheckBoxPreference cbColorMode = (CheckBoxPreference) findPreference(SETTINGS_COLORMODE);
         CheckBoxPreference cbDrawerTabs = (CheckBoxPreference) findPreference(SETTINGS_DRAWERTABS);
 
-        proxy.setOnPreferenceClickListener(this);
         useragent.setOnPreferenceClickListener(this);
         downloadloc.setOnPreferenceClickListener(this);
         home.setOnPreferenceClickListener(this);
@@ -84,17 +79,9 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
         cbColorMode.setOnPreferenceChangeListener(this);
         cbDrawerTabs.setOnPreferenceChangeListener(this);
 
-        mAgentChoice = mPreferenceManager.getUserAgentChoice();
+        mAgentChoice = mPreferenceManager.getUserAgentChoice(ConfigUtils.getDefaultUserAgent(getActivity()));
         mHomepage = mPreferenceManager.getHomepage();
         mDownloadLocation = mPreferenceManager.getDownloadDirectory();
-        mProxyChoices = getResources().getStringArray(R.array.proxy_choices_array);
-
-        int choice = mPreferenceManager.getProxyChoice();
-        if (choice == Constants.PROXY_MANUAL) {
-            proxy.setSummary(mPreferenceManager.getProxyHost() + ':' + mPreferenceManager.getProxyPort());
-        } else {
-            proxy.setSummary(mProxyChoices[choice]);
-        }
 
 
         setSearchEngineSummary(mPreferenceManager.getSearchChoice());
@@ -158,76 +145,6 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
     }
 
 
-    private void proxyChoicePicker() {
-        AlertDialog.Builder picker = new AlertDialog.Builder(mActivity);
-        picker.setTitle(getResources().getString(R.string.http_proxy));
-        picker.setSingleChoiceItems(mProxyChoices, mPreferenceManager.getProxyChoice(),
-                new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        setProxyChoice(which);
-                    }
-                });
-        picker.setNeutralButton(getResources().getString(R.string.action_ok), null);
-        picker.show();
-    }
-
-    private void setProxyChoice(int choice) {
-        switch (choice) {
-            case Constants.PROXY_ORBOT:
-                choice = ProxyUtils.setProxyChoice(choice, mActivity);
-                break;
-            case Constants.PROXY_I2P:
-                choice = ProxyUtils.setProxyChoice(choice, mActivity);
-                break;
-            case Constants.PROXY_MANUAL:
-                manualProxyPicker();
-                break;
-        }
-
-        mPreferenceManager.setProxyChoice(choice);
-        if (choice < mProxyChoices.length)
-            proxy.setSummary(mProxyChoices[choice]);
-    }
-
-    private void manualProxyPicker() {
-        View v = mActivity.getLayoutInflater().inflate(R.layout.picker_manual_proxy, null);
-        final EditText eProxyHost = (EditText) v.findViewById(R.id.proxyHost);
-        final EditText eProxyPort = (EditText) v.findViewById(R.id.proxyPort);
-
-        // Limit the number of characters since the port needs to be of type int
-        // Use input filters to limite the EditText length and determine the max
-        // length by using length of integer MAX_VALUE
-        int maxCharacters = Integer.toString(Integer.MAX_VALUE).length();
-        InputFilter[] filterArray = new InputFilter[1];
-        filterArray[0] = new InputFilter.LengthFilter(maxCharacters - 1);
-        eProxyPort.setFilters(filterArray);
-
-        eProxyHost.setText(mPreferenceManager.getProxyHost());
-        eProxyPort.setText(Integer.toString(mPreferenceManager.getProxyPort()));
-
-        new AlertDialog.Builder(mActivity)
-                .setTitle(R.string.manual_proxy)
-                .setView(v)
-                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String proxyHost = eProxyHost.getText().toString();
-                        int proxyPort;
-                        try {
-                            // Try/Catch in case the user types an empty string or a number
-                            // larger than max integer
-                            proxyPort = Integer.parseInt(eProxyPort.getText().toString());
-                        } catch (NumberFormatException ignored) {
-                            proxyPort = mPreferenceManager.getProxyPort();
-                        }
-                        mPreferenceManager.setProxyHost(proxyHost);
-                        mPreferenceManager.setProxyPort(proxyPort);
-                        proxy.setSummary(proxyHost + ':' + proxyPort);
-                    }
-                }).show();
-    }
 
     private void searchDialog() {
         AlertDialog.Builder picker = new AlertDialog.Builder(mActivity);
@@ -350,7 +267,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
     private void agentDialog() {
         AlertDialog.Builder agentPicker = new AlertDialog.Builder(mActivity);
         agentPicker.setTitle(getResources().getString(R.string.title_user_agent));
-        mAgentChoice = mPreferenceManager.getUserAgentChoice();
+        mAgentChoice = mPreferenceManager.getUserAgentChoice(ConfigUtils.getDefaultUserAgent(getActivity()));
         agentPicker.setSingleChoiceItems(R.array.user_agent, mAgentChoice - 1,
                 new DialogInterface.OnClickListener() {
                     @Override
@@ -463,9 +380,6 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
     @Override
     public boolean onPreferenceClick(@NonNull Preference preference) {
         switch (preference.getKey()) {
-            case SETTINGS_PROXY:
-                proxyChoicePicker();
-                return true;
             case SETTINGS_USERAGENT:
                 agentDialog();
                 return true;

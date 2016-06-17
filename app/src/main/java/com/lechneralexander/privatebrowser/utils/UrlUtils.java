@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 
 import com.lechneralexander.privatebrowser.constant.BookmarkPage;
 import com.lechneralexander.privatebrowser.constant.Constants;
-import com.lechneralexander.privatebrowser.constant.HistoryPage;
 import com.lechneralexander.privatebrowser.constant.StartPage;
 
 /**
@@ -163,7 +162,6 @@ public class UrlUtils {
     public static boolean isSpecialUrl(@Nullable String url) {
         return url != null && url.startsWith(Constants.FILE) &&
                 (url.endsWith(BookmarkPage.FILENAME) ||
-                        url.endsWith(HistoryPage.FILENAME) ||
                         url.endsWith(StartPage.FILENAME));
     }
 
@@ -184,7 +182,7 @@ public class UrlUtils {
      * @return true if the url is a history url, false otherwise.
      */
     public static boolean isHistoryUrl(@Nullable String url) {
-        return url != null && url.startsWith(Constants.FILE) && url.endsWith(HistoryPage.FILENAME);
+        return false;
     }
 
     /**

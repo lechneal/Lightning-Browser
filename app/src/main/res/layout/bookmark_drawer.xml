@@ -58,28 +58,8 @@
         android:background="?attr/dividerColor"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="1">
 
-        <FrameLayout
-            android:id="@+id/action_toggle_desktop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/actionBarItemBackground"
-            android:clickable="true">
-
-            <ImageView
-                android:id="@+id/icon_desktop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@string/action_back"
-                android:paddingBottom="4dp"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:paddingTop="4dp"
-                android:src="@drawable/ic_action_desktop"/>
-        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/action_add_bookmark"

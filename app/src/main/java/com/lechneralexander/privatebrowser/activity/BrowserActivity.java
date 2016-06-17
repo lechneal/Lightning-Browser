@@ -6,14 +6,11 @@ package com.lechneralexander.privatebrowser.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -104,10 +101,8 @@ import com.lechneralexander.privatebrowser.bus.NavigationEvents;
 import com.lechneralexander.privatebrowser.bus.TabEvents;
 import com.lechneralexander.privatebrowser.constant.BookmarkPage;
 import com.lechneralexander.privatebrowser.constant.Constants;
-import com.lechneralexander.privatebrowser.constant.HistoryPage;
 import com.lechneralexander.privatebrowser.controller.UIController;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
-import com.lechneralexander.privatebrowser.database.HistoryDatabase;
 import com.lechneralexander.privatebrowser.database.HistoryItem;
 import com.lechneralexander.privatebrowser.dialog.LightningDialogBuilder;
 import com.lechneralexander.privatebrowser.fragment.BookmarksFragment;
@@ -118,7 +113,6 @@ import com.lechneralexander.privatebrowser.react.Schedulers;
 import com.lechneralexander.privatebrowser.receiver.NetworkReceiver;
 import com.lechneralexander.privatebrowser.utils.DrawableUtils;
 import com.lechneralexander.privatebrowser.utils.KeyboardHelper;
-import com.lechneralexander.privatebrowser.utils.ProxyUtils;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;
 import com.lechneralexander.privatebrowser.utils.UrlUtils;
 import com.lechneralexander.privatebrowser.utils.Utils;
@@ -199,8 +193,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
 
     private TabsManager mTabsManager;
 
-    @Inject HistoryDatabase mHistoryDatabase;
-
     // Image
     private Bitmap mWebpageBitmap;
     private final ColorDrawable mBackground = new ColorDrawable();
@@ -209,8 +201,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
     private BrowserPresenter mPresenter;
     private TabsView mTabsView;
 
-    // Proxy
-    @Inject ProxyUtils mProxyUtils;
 
     // Constant
     private static final int API = android.os.Build.VERSION.SDK_INT;
@@ -418,7 +408,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         } else {
             mPresenter.setupTabs(intent);
             setIntent(null);
-            mProxyUtils.checkForProxy(BrowserActivity.this);
         }
     }
 
@@ -431,7 +420,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         mTabsManager.newTab(this, "", false);
         mTabsManager.switchToTab(0);
         mTabsManager.clearSavedState();
-        HistoryPage.deleteHistoryPage(getApplication());
         closeBrowser();
         // System exit needed in the case of receiving
         // the panic intent since finish() isn't completely
@@ -682,7 +670,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         }
 
         updateCookiePreference().subscribeOn(Schedulers.worker()).subscribe();
-        mProxyUtils.updateProxySettings(this);
     }
 
     @Override
@@ -743,26 +730,26 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
             case R.id.action_new_tab:
                 newTab(null, true);
                 return true;
-            case R.id.action_share:
-                if (currentUrl != null && !UrlUtils.isSpecialUrl(currentUrl)) {
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, currentView.getTitle());
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, currentUrl);
-                    startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.dialog_title_share)));
-                }
-                return true;
+//            case R.id.action_share:
+//                if (currentUrl != null && !UrlUtils.isSpecialUrl(currentUrl)) {
+//                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                    shareIntent.setType("text/plain");
+//                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, currentView.getTitle());
+//                    shareIntent.putExtra(Intent.EXTRA_TEXT, currentUrl);
+//                    startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.dialog_title_share)));
+//                }
+//                return true;
             case R.id.action_bookmarks:
                 openBookmarks();
                 return true;
-            case R.id.action_copy:
-                if (currentUrl != null && !UrlUtils.isSpecialUrl(currentUrl)) {
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("label", currentUrl);
-                    clipboard.setPrimaryClip(clip);
-                    Utils.showSnackbar(this, R.string.message_link_copied);
-                }
-                return true;
+//            case R.id.action_copy:
+//                if (currentUrl != null && !UrlUtils.isSpecialUrl(currentUrl)) {
+//                    ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+//                    ClipData clip = ClipData.newPlainText("label", currentUrl);
+//                    clipboard.setPrimaryClip(clip);
+//                    Utils.showSnackbar(this, R.string.message_link_copied);
+//                }
+//                return true;
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
@@ -1071,11 +1058,8 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         final LightningView currentTab = mTabsManager.getCurrentTab();
         if (mPreferences.getClearCacheExit()) {
             WebUtils.clearCache(BrowserActivity.this);
+            Utils.trimCache(BrowserActivity.this);
             Log.d(TAG, "Cache Cleared");
-        }
-        if (mHistoryDatabase != null){
-            WebUtils.clearHistory(this, mHistoryDatabase);
-            Log.d(TAG, "History Cleared");
         }
         WebUtils.clearCookies(this);
         Log.d(TAG, "Cookies Cleared");
@@ -1186,9 +1170,9 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         } catch (IllegalArgumentException e) {
             Log.e(TAG, "Receiver was not registered", e);
         }
-        if (isIncognito() && isFinishing()) {
-            overridePendingTransition(R.anim.fade_in_scale, R.anim.slide_down_out);
-        }
+//        if (isIncognito() && isFinishing()) {
+//            overridePendingTransition(R.anim.fade_in_scale, R.anim.slide_down_out);
+//        }
 
         mEventBus.unregister(mBusEventListener);
     }
@@ -1202,7 +1186,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
     @Override
     protected void onStop() {
         super.onStop();
-        mProxyUtils.onStop();
     }
 
     @Override
@@ -1211,18 +1194,12 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
 
         mPresenter.shutdown();
 
-        if (mHistoryDatabase != null) {
-            mHistoryDatabase.close();
-            mHistoryDatabase = null;
-        }
-
         super.onDestroy();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mProxyUtils.onStart(this);
     }
 
     @Override
@@ -1394,25 +1371,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         mProgressBar.setProgress(n);
     }
 
-    void addItemToHistory(@Nullable final String title, @NonNull final String url) {
-        if (UrlUtils.isSpecialUrl(url)) {
-            return;
-        }
-        BrowserApp.getIOThread().execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    mHistoryDatabase.visitHistoryItem(url, title);
-                } catch (IllegalStateException e) {
-                    Log.e(TAG, "IllegalStateException in updateHistory", e);
-                } catch (NullPointerException e) {
-                    Log.e(TAG, "NullPointerException in updateHistory", e);
-                } catch (SQLiteException e) {
-                    Log.e(TAG, "SQLiteException in updateHistory", e);
-                }
-            }
-        });
-    }
 
     /**
      * method to generate search suggestions for the AutoCompleteTextView from
@@ -2060,11 +2018,11 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
                 currentTab.clearFindMatches();
                 mSearchBar.setVisibility(View.GONE);
                 break;
-            case R.id.action_toggle_desktop:
-                currentTab.toggleDesktopUA(this);
-                currentTab.reload();
-                closeDrawers(null);
-                break;
+//            case R.id.action_toggle_desktop:
+//                currentTab.toggleDesktopUA(this);
+//                currentTab.reload();
+//                closeDrawers(null);
+//                break;
         }
     }
 
@@ -2157,10 +2115,6 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
             }, 150);
         }
 
-        @Subscribe
-        public void loadHistory(final BrowserEvents.OpenHistoryInCurrentTab event) {
-            new HistoryPage(mTabsManager.getCurrentTab(), getApplication(), mHistoryDatabase).load();
-        }
 
         /**
          * Load the given url in a new tab, used by the the
