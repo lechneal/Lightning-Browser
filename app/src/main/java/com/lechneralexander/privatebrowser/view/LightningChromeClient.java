@@ -14,13 +14,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
-import com.anthonycr.grant.PermissionsManager;
-import com.anthonycr.grant.PermissionsResultAction;
 
 import com.lechneralexander.privatebrowser.R;
 import com.lechneralexander.privatebrowser.app.BrowserApp;
@@ -31,7 +28,7 @@ class LightningChromeClient extends WebChromeClient {
 
     private static final String TAG = LightningChromeClient.class.getSimpleName();
 
-    private static final String[] PERMISSIONS = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
+//    private static final String[] PERMISSIONS = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
 
     @NonNull private final Activity mActivity;
     @NonNull private final LightningView mLightningView;
@@ -86,48 +83,48 @@ class LightningChromeClient extends WebChromeClient {
             mUIController.updateHistory(title, view.getUrl());
         }
     }
-
-    @Override
-    public void onGeolocationPermissionsShowPrompt(@NonNull final String origin,
-                                                   @NonNull final GeolocationPermissions.Callback callback) {
-        PermissionsManager.getInstance().requestPermissionsIfNecessaryForResult(mActivity, PERMISSIONS, new PermissionsResultAction() {
-            @Override
-            public void onGranted() {
-                final boolean remember = true;
-                AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-                builder.setTitle(mActivity.getString(R.string.location));
-                String org;
-                if (origin.length() > 50) {
-                    org = origin.subSequence(0, 50) + "...";
-                } else {
-                    org = origin;
-                }
-                builder.setMessage(org + mActivity.getString(R.string.message_location))
-                        .setCancelable(true)
-                        .setPositiveButton(mActivity.getString(R.string.action_allow),
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        callback.invoke(origin, true, remember);
-                                    }
-                                })
-                        .setNegativeButton(mActivity.getString(R.string.action_dont_allow),
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        callback.invoke(origin, false, remember);
-                                    }
-                                });
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-
-            @Override
-            public void onDenied(String permission) {
-                //TODO show message and/or turn off setting
-            }
-        });
-    }
+//
+//    @Override
+//    public void onGeolocationPermissionsShowPrompt(@NonNull final String origin,
+//                                                   @NonNull final GeolocationPermissions.Callback callback) {
+//        PermissionsManager.getInstance().requestPermissionsIfNecessaryForResult(mActivity, PERMISSIONS, new PermissionsResultAction() {
+//            @Override
+//            public void onGranted() {
+//                final boolean remember = true;
+//                AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+//                builder.setTitle(mActivity.getString(R.string.location));
+//                String org;
+//                if (origin.length() > 50) {
+//                    org = origin.subSequence(0, 50) + "...";
+//                } else {
+//                    org = origin;
+//                }
+//                builder.setMessage(org + mActivity.getString(R.string.message_location))
+//                        .setCancelable(true)
+//                        .setPositiveButton(mActivity.getString(R.string.action_allow),
+//                                new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int id) {
+//                                        callback.invoke(origin, true, remember);
+//                                    }
+//                                })
+//                        .setNegativeButton(mActivity.getString(R.string.action_dont_allow),
+//                                new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int id) {
+//                                        callback.invoke(origin, false, remember);
+//                                    }
+//                                });
+//                AlertDialog alert = builder.create();
+//                alert.show();
+//            }
+//
+//            @Override
+//            public void onDenied(String permission) {
+//                //TODO show message and/or turn off setting
+//            }
+//        });
+//    }
 
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture,

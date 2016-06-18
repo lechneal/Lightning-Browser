@@ -28,7 +28,6 @@ public class PreferenceManager {
         public static final String HIDE_STATUS_BAR = "hidestatus";
         public static final String HOMEPAGE = "home";
         public static final String JAVASCRIPT = "java";
-        public static final String LOCATION = "location";
         public static final String OVERVIEW_MODE = "overviewmode";
         public static final String POPUPS = "newwindows";
         public static final String SAVE_PASSWORDS = "passwords";
@@ -150,10 +149,6 @@ public class PreferenceManager {
 
     public boolean getJavaScriptEnabled() {
         return mPrefs.getBoolean(Name.JAVASCRIPT, true);
-    }
-
-    public boolean getLocationEnabled() {
-        return mPrefs.getBoolean(Name.LOCATION, false);
     }
 
     public boolean getOverviewModeEnabled() {
@@ -337,10 +332,6 @@ public class PreferenceManager {
 
     public void setJavaScriptEnabled(boolean enable) {
         putBoolean(Name.JAVASCRIPT, enable);
-    }
-
-    public void setLocationEnabled(boolean enable) {
-        putBoolean(Name.LOCATION, enable);
     }
 
     public void setOverviewModeEnabled(boolean enable) {

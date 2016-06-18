@@ -255,11 +255,8 @@ public class LightningView {
         sHomepage = mPreferences.getHomepage();
         setColorMode(mPreferences.getRenderingMode());
 
-        if (!mIsIncognitoTab) {
-            settings.setGeolocationEnabled(mPreferences.getLocationEnabled());
-        } else {
-            settings.setGeolocationEnabled(false);
-        }
+        //Disable geo location
+        settings.setGeolocationEnabled(false);
 
         setUserAgent(context, mPreferences.getUserAgentChoice(ConfigUtils.getDefaultUserAgent(context)));
 
@@ -395,18 +392,18 @@ public class LightningView {
                     public void onComplete() {}
                 });
 
-        getPathObservable("geolocation")
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.main())
-                .subscribe(new OnSubscribe<File>() {
-                    @Override
-                    public void onNext(File item) {
-                        settings.setGeolocationDatabasePath(item.getPath());
-                    }
-
-                    @Override
-                    public void onComplete() {}
-                });
+//        getPathObservable("geolocation")
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(Schedulers.main())
+//                .subscribe(new OnSubscribe<File>() {
+//                    @Override
+//                    public void onNext(File item) {
+//                        settings.setGeolocationDatabasePath(item.getPath());
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {}
+//                });
 
         getPathObservable("databases")
                 .subscribeOn(Schedulers.io())

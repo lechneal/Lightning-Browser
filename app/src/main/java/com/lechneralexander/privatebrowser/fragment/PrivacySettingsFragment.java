@@ -57,7 +57,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     private void initPrefs() {
         Preference clearprivatedata = findPreference(SETTINGS_CLEARPRIVATEDATA);
 
-        CheckBoxPreference cblocation = (CheckBoxPreference) findPreference(SETTINGS_LOCATION);
         CheckBoxPreference cbsavepasswords = (CheckBoxPreference) findPreference(SETTINGS_SAVEPASSWORD);
         CheckBoxPreference cbcacheexit = (CheckBoxPreference) findPreference(SETTINGS_CACHEEXIT);
         CheckBoxPreference cbFinishOnPause = (CheckBoxPreference) findPreference(SETTINGS_FINISH_ON_PAUSE);
@@ -66,14 +65,12 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
 
         clearprivatedata.setOnPreferenceClickListener(this);
 
-        cblocation.setOnPreferenceChangeListener(this);
         cbsavepasswords.setOnPreferenceChangeListener(this);
         cbcacheexit.setOnPreferenceChangeListener(this);
         cbDoNotTrack.setOnPreferenceChangeListener(this);
         cbFinishOnPause.setOnPreferenceChangeListener(this);
         cbIdentifyingHeaders.setOnPreferenceChangeListener(this);
 
-        cblocation.setChecked(mPreferenceManager.getLocationEnabled());
         cbsavepasswords.setChecked(mPreferenceManager.getSavePasswordsEnabled());
         cbcacheexit.setChecked(mPreferenceManager.getClearCacheExit());
         cbDoNotTrack.setChecked(mPreferenceManager.getDoNotTrackEnabled() && Utils.doesSupportHeaders());
@@ -201,9 +198,6 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     @Override
     public boolean onPreferenceChange(@NonNull Preference preference, Object newValue) {
         switch (preference.getKey()) {
-            case SETTINGS_LOCATION:
-                mPreferenceManager.setLocationEnabled((Boolean) newValue);
-                return true;
             case SETTINGS_SAVEPASSWORD:
                 mPreferenceManager.setSavePasswordsEnabled((Boolean) newValue);
                 return true;
