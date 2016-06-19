@@ -116,7 +116,16 @@ public class LightningWebClient extends WebViewClient {
     }
 
     private static boolean isGoogleDoc(String url) {
-        if (url.endsWith(".pdf")
+        if (
+                (url.endsWith(".pdf") ||
+                        url.endsWith(".doc") ||
+                        url.endsWith(".docx") ||
+                        url.endsWith(".xls") ||
+                        url.endsWith(".xlsx") ||
+                        url.endsWith(".ppt") ||
+                        url.endsWith(".pptx") ||
+                        url.endsWith(".eps")
+                )
                 && !url.startsWith("http://docs.google.com")
                 && !url.startsWith("https://docs.google.com")
                 && !url.startsWith("http://drive.google.com")
