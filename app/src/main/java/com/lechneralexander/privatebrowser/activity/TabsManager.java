@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -86,6 +87,7 @@ public class TabsManager {
     }
 
     private void finishInitialization() {
+        Log.d(TAG, "Finish Initialization");
         mIsInitialized = true;
         for (Runnable runnable : mPostInitializationWorkList) {
             runnable.run();
@@ -110,25 +112,20 @@ public class TabsManager {
                 // Make sure we start with a clean tab list
                 shutdown();
 
-                // If incognito, only create one tab, do not handle intent
-                // in order to protect user privacy
-                if (incognito) {
-                    newTab(activity, null, true);
-                    finishInitialization();
-                    subscriber.onComplete();
-                    return;
-                }
-
                 String url = null;
                 if (intent != null) {
                     url = intent.getDataString();
                 }
                 Log.d(TAG, "URL from intent: " + url);
                 mCurrentTab = null;
-                if (mPreferenceManager.getRestoreLostTabsEnabled()) {
+                if (!incognito && mPreferenceManager.getRestoreLostTabsEnabled()) {
                     restoreLostTabs(url, activity, subscriber);
+                } else if (url != null){
+                    newTab(activity, url, incognito);
+                    finishInitialization();
+                    subscriber.onComplete();
                 } else {
-                    newTab(activity, null, false);
+                    newTab(activity, null, incognito);
                     finishInitialization();
                     subscriber.onComplete();
                 }

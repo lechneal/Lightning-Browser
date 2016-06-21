@@ -3,6 +3,7 @@ package com.lechneralexander.privatebrowser.browser;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Debug;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -208,9 +209,11 @@ public class BrowserPresenter {
      *               may be null.
      */
     public void onNewIntent(@Nullable final Intent intent) {
+        Log.d(TAG, "onNewIntent");
         mTabsModel.doAfterInitialization(new Runnable() {
             @Override
             public void run() {
+                Log.d(TAG, "onNewIntent after initialization");
                 final String url;
                 if (intent != null) {
                     url = intent.getDataString();
