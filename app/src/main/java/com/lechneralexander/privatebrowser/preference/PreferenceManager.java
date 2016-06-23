@@ -72,7 +72,7 @@ public class PreferenceManager {
     }
 
     public boolean getAdBlockEnabled() {
-        return mPrefs.getBoolean(Name.BLOCK_ADS, false);
+        return mPrefs.getBoolean(Name.BLOCK_ADS, true);
     }
 
     public boolean getBlockImagesEnabled() {

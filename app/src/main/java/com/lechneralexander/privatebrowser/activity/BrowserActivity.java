@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
+import android.provider.Browser;
 import android.provider.MediaStore;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
@@ -767,7 +768,7 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                BrowserActivity.this.closeBrowser();
+                                panicClean();
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 dialog.dismiss();
@@ -1061,11 +1062,15 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
             Utils.trimCache(BrowserActivity.this);
             Log.d(TAG, "Cache Cleared");
         }
+        Utils.clearAppCache(BrowserActivity.this);
+        Utils.clearDatabases(BrowserActivity.this);
+        Log.d(TAG, "AppCache and Databases");
+        WebUtils.clearFormData(BrowserActivity.this);
+        Log.d(TAG, "Form Data Cleared");
         WebUtils.clearCookies(this);
         Log.d(TAG, "Cookies Cleared");
         WebUtils.clearWebStorage();
         Log.d(TAG, "WebStorage Cleared");
-        WebUtils.clearWebStorage();     // We want to make sure incognito mode is secure
     }
 
     @Override

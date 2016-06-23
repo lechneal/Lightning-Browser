@@ -46,7 +46,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.lechneralexander.privatebrowser.R;
+import com.lechneralexander.privatebrowser.activity.BrowserActivity;
 import com.lechneralexander.privatebrowser.activity.MainActivity;
+import com.lechneralexander.privatebrowser.app.BrowserApp;
 import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.database.HistoryItem;
 import com.lechneralexander.privatebrowser.download.DownloadHandler;
@@ -370,4 +372,13 @@ public final class Utils {
     }
 
 
+
+    public static void clearAppCache(Activity activity) {
+        File file = BrowserApp.get(activity).getDir("appcache", 0);
+        deleteDir(file);
+    }
+    public static void clearDatabases(Activity activity) {
+        File file = BrowserApp.get(activity).getDir("databases", 0);
+        deleteDir(file);
+    }
 }

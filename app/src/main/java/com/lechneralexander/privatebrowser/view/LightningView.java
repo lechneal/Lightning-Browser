@@ -13,6 +13,7 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.os.Build;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -301,7 +302,7 @@ public class LightningView {
         if (!mIsIncognitoTab) {
             settings.setSupportMultipleWindows(mPreferences.getPopupsEnabled());
         } else {
-            settings.setSupportMultipleWindows(false);
+            settings.setSupportMultipleWindows(mPreferences.getPopupsEnabled()); //Allow in incognito, change in settings
         }
         settings.setUseWideViewPort(mPreferences.getUseWideViewportEnabled());
         settings.setLoadWithOverviewMode(mPreferences.getOverviewModeEnabled());
@@ -358,17 +359,19 @@ public class LightningView {
             // We're in Incognito mode, reject
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         }
+
         if (!mIsIncognitoTab) {
             settings.setDomStorageEnabled(true);
             settings.setAppCacheEnabled(true);
             settings.setCacheMode(WebSettings.LOAD_DEFAULT);
             settings.setDatabaseEnabled(true);
         } else {
-            settings.setDomStorageEnabled(false);
-            settings.setAppCacheEnabled(false);
-            settings.setDatabaseEnabled(false);
-            settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+            settings.setDomStorageEnabled(true);    //Allow dom storgage
+            settings.setAppCacheEnabled(true);      //Allow appcache (deleted on exit)
+            settings.setCacheMode(WebSettings.LOAD_DEFAULT); //Allow cache (deleted on exit - if desired)
+            settings.setDatabaseEnabled(true);     //Allow databases (deleted on exit)
         }
+
         settings.setSupportZoom(true);
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);

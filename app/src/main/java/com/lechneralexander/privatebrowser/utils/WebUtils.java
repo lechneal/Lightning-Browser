@@ -12,6 +12,9 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewDatabase;
 
+import com.lechneralexander.privatebrowser.activity.BrowserActivity;
+import com.lechneralexander.privatebrowser.app.BrowserApp;
+
 /**
  * Copyright 8/4/2015 Anthony Restaino
  */
@@ -52,4 +55,9 @@ public class WebUtils {
         webView.destroy();
     }
 
+    public static void clearFormData(@Nullable Activity mActivity) {
+        WebView webView = new WebView(mActivity);
+        webView.clearFormData();
+        webView.destroy();
+    }
 }
