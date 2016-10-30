@@ -87,4 +87,15 @@ public final class BrowserEvents {
             this.url = url;
         }
     }
+
+    /**
+     * The user ask to open the given url as new background tab
+     */
+    public final static class OpenUrlInNewBackgroundTab {
+        public final String url;
+
+        public OpenUrlInNewBackgroundTab(final String url) {
+            this.url = url;
+        }
+    }
 }

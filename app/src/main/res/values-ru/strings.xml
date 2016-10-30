@@ -150,4 +150,5 @@
     <string name="settings_privacy">Настройки приватности</string>
     <string name="settings_about">О программе</string>
     <string name="settings_about_explain">Информация о версии, авторах и лицензиях</string>
+    <string name="action_new_bg_tab">Открыть в фоновом вкладке</string>
 </resources>

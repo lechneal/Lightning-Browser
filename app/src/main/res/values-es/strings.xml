@@ -169,4 +169,5 @@
     <string name="invert_color">Invertir color</string>
     <string name="dark_theme">Usar tema oscuro</string>
     <string name="tabs">Pestañas</string>
+    <string name="action_new_bg_tab">Abrir en segundo plano</string>
 </resources>

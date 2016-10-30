@@ -169,5 +169,6 @@
     <string name="tabs">标签</string>
     <string name="third_party">阻止第三方 Cookies</string>
     <string name="url_contents">URL 框内容</string>
+    <string name="action_new_bg_tab">在背景选项卡中打开</string>
     <!-- <string name="exit">退出</string> -->
 </resources>

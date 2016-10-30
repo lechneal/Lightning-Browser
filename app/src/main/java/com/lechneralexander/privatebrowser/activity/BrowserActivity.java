@@ -2135,6 +2135,20 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
             mDrawerLayout.closeDrawers();
         }
 
+
+        /**
+         * Load the given url in a new background tab, used by
+         * {@link LightningDialogBuilder}
+         *
+         * @param event   Bus event indicating that the user wishes
+         *                to open a bookmark in a new background tab
+         */
+        @Subscribe
+        public void loadUrlInNewBackgroundTab(final BrowserEvents.OpenUrlInNewBackgroundTab event) {
+            BrowserActivity.this.newTab(event.url, false);
+            mDrawerLayout.closeDrawers();
+        }
+
         /**
          * When receive a {@link BookmarkEvents.ToggleBookmarkForCurrentPage}
          * message this receiver answer firing the

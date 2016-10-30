@@ -217,4 +217,5 @@
     <string name="tabs_in_drawer">Tabs in Drawer anzeigen</string>
     <string name="exit">Beenden</string>
     <string name="exit_question">Alle Tabs schließen und alle private Daten löschen?</string>
+    <string name="action_new_bg_tab">Im Hintergrund öffnen</string>
 </resources>
