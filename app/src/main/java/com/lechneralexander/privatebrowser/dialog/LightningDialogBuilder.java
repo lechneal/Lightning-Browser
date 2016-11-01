@@ -249,7 +249,7 @@ public class LightningDialogBuilder {
                         mEventBus.post(new BrowserEvents.OpenUrlInNewTab(url));
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
-                        mEventBus.post(new BrowserEvents.OpenUrlInCurrentTab(url));
+                        mEventBus.post(new BrowserEvents.OpenUrlInNewBackgroundTab(url));
                         break;
                     case DialogInterface.BUTTON_NEUTRAL:
                         Utils.downloadFile(activity, mPreferenceManager, url, userAgent, "attachment");
@@ -263,7 +263,7 @@ public class LightningDialogBuilder {
                 .setCancelable(true)
                 .setMessage(R.string.dialog_image)
                 .setPositiveButton(R.string.action_new_tab, dialogClickListener)
-                .setNegativeButton(R.string.action_open, dialogClickListener)
+                .setNegativeButton(R.string.action_new_bg_tab, dialogClickListener)
                 .setNeutralButton(R.string.action_download, dialogClickListener)
                 .show();
     }

@@ -10,7 +10,7 @@ android {
         applicationId "com.lechneralexander.privatebrowser"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 12
+        versionCode 13
         versionName "2.0.6"
         generatedDensities = []
     }
