@@ -254,4 +254,7 @@
     <string name="orbot_not_supported">Orbot not supported!</string>
     <string name="i2p_not_supported">I2P not supported</string>
     <string name="message_clear_privatedata">All private data deleted</string>
+    <string name="enable_cookies">Enable Cookies</string>
+    <string name="tpc_always_disabled">3rd party cookies are always disabled</string>
+
 </resources>

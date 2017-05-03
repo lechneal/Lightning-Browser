@@ -21,6 +21,11 @@
             android:title="@string/do_not_track"/>
         <CheckBoxPreference
             android:defaultValue="true"
+            android:key="cookies_enabled"
+            android:title="@string/enable_cookies"
+            android:summary="@string/tpc_always_disabled"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="remove_identifying_headers"
             android:title="@string/remove_identifying_headers"/>
         <Preference

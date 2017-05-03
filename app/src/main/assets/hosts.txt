@@ -16845,6 +16845,7 @@
 127.0.0.1	ads.dfiles.ru
 127.0.0.1	ads.dgonn.com
 127.0.0.1	ads.dhakatribune.com
+127.0.0.1	ads.diamonds
 127.0.0.1	ads.digital-digest.com
 127.0.0.1	ads.digitalhealthcare.com
 127.0.0.1	ads.digitalmedianet.com
@@ -19208,7 +19209,6 @@
 127.0.0.1	affiliatenetwork.com
 127.0.0.1	affiliateprogram.keywordspy.com
 127.0.0.1	affiliatequality.com
-127.0.0.1	affiliates-cdn.mozilla.org
 127.0.0.1	affiliates.5dimes.com
 127.0.0.1	affiliates.a2hosting.com
 127.0.0.1	affiliates.about.com
@@ -20197,6 +20197,7 @@
 127.0.0.1	assets.servedby-buysellads.com
 127.0.0.1	assets.sharethrough.com
 127.0.0.1	assets.tapad.com
+127.0.0.1	assistonglobal.com
 127.0.0.1	assoc-amazon.co.uk
 127.0.0.1	associatedcontent.112.2o7.net
 127.0.0.1	associateprograms.com
@@ -23586,7 +23587,6 @@
 127.0.0.1	campaigns.f2.com.au
 127.0.0.1	campaigns.interclick.com
 127.0.0.1	campaigns.rioseo.com
-127.0.0.1	campaigns.services.mozilla.com
 127.0.0.1	campaigntracking01.com
 127.0.0.1	campf.voluumtrk.com
 127.0.0.1	camsiteonline.wiredcircular.com
@@ -26922,7 +26922,6 @@
 127.0.0.1	data.marketgid.com
 127.0.0.1	data.mb8e17f12.website
 127.0.0.1	data.mobclix.com
-127.0.0.1	data.mozilla.com
 127.0.0.1	data.neuroxmedia.com
 127.0.0.1	data.ninemsn.com.au
 127.0.0.1	data.oileddaintiessunset.info
@@ -27276,6 +27275,7 @@
 127.0.0.1	dimpact.co.il
 127.0.0.1	dina-rish.us
 127.0.0.1	dinclinx.com
+127.0.0.1	dintandnesin.ru
 127.0.0.1	direct-revenue.com
 127.0.0.1	direct-stats.com
 127.0.0.1	direct-xxx-access.com
@@ -28275,6 +28275,7 @@
 127.0.0.1	everyfreegift.com
 127.0.0.1	everyscape.com
 127.0.0.1	everythingbts.com
+127.0.0.1	evewronsedent.ru
 127.0.0.1	evidencecleanergold.com
 127.0.0.1	evisit.exeter.ac.uk
 127.0.0.1	evisitcs2.com
@@ -28510,6 +28511,7 @@
 127.0.0.1	feedshare.flipora.com
 127.0.0.1	felitb.rightinthebox.com
 127.0.0.1	femi9.voluumtrk.com
+127.0.0.1	fenix-translation.com.ua
 127.0.0.1	ferdy.org
 127.0.0.1	fermakontenta.justclick.ru
 127.0.0.1	ferrago.uk.intellitxt.com
@@ -28532,7 +28534,6 @@
 127.0.0.1	fhg.pervsonpatrol.com
 127.0.0.1	fhg.realslutparty.com
 127.0.0.1	fhlyo.voluumtrk.com
-127.0.0.1	fhr.data.mozilla.com
 127.0.0.1	fhserve.com
 127.0.0.1	fiacardservicesgroup.tt.omtrdc.net
 127.0.0.1	fiafii.org
@@ -29489,7 +29490,6 @@
 127.0.0.1	geo.hyperlinksecure.com
 127.0.0.1	geo.ivwbox.de
 127.0.0.1	geo.metronews.ca
-127.0.0.1	geo.mozilla.org
 127.0.0.1	geo.mtvnn.com
 127.0.0.1	geo.offermatica.com
 127.0.0.1	geo.q5media.net
@@ -30135,6 +30135,7 @@
 127.0.0.1	hc.rapidshare.com
 127.0.0.1	hc1.humanclick.com
 127.0.0.1	hc2.humanclick.com
+127.0.0.1	hcharbach.de
 127.0.0.1	hchrmain.112.2o7.net
 127.0.0.1	hclrm.voluumtrk.com
 127.0.0.1	hcu1u.voluumtrk.com
@@ -30171,6 +30172,7 @@
 127.0.0.1	help.doubleclick.net
 127.0.0.1	help.qualaroo.com
 127.0.0.1	hernando.com
+127.0.0.1	hetsedryropt.com
 127.0.0.1	hexacash.com
 127.0.0.1	heywire.com
 127.0.0.1	heyzap.com
@@ -30368,6 +30370,7 @@
 127.0.0.1	hosting2.rts.lj.doublepimp.com
 127.0.0.1	hosting4.rts.fling.doublepimp.com
 127.0.0.1	hostlnks.com
+127.0.0.1	hostpedia.ro
 127.0.0.1	hostpost4.xyz
 127.0.0.1	hot50.net
 127.0.0.1	hotdatinglist.com
@@ -30384,6 +30387,7 @@
 127.0.0.1	housead.umeng.com
 127.0.0.1	howaboutwe.go2cloud.org
 127.0.0.1	howardchui.us.intellitxt.com
+127.0.0.1	howrowthettof.com
 127.0.0.1	hoz01.voluumtrk.com
 127.0.0.1	hpglobal.112.2o7.net
 127.0.0.1	hphqglobal.112.2o7.net
@@ -30866,7 +30870,6 @@
 127.0.0.1	imaginemedia.net
 127.0.0.1	imap.linkshare.com
 127.0.0.1	imatmobile.com
-127.0.0.1	imb.mobitkr.com
 127.0.0.1	imedia.co.il
 127.0.0.1	imeds.ero-advertising.com
 127.0.0.1	imeseonetwork.go2cloud.org
@@ -33180,7 +33183,6 @@
 127.0.0.1	metrics.loomia.com
 127.0.0.1	metrics.mcafee.com
 127.0.0.1	metrics.mmailhost.com
-127.0.0.1	metrics.mozilla.com
 127.0.0.1	metrics.nexgen.neustar.biz
 127.0.0.1	metrics.payback.de
 127.0.0.1	metrics.premiereradio.net
@@ -34868,6 +34870,7 @@
 127.0.0.1	papayamobile.com
 127.0.0.1	papi.slideme.org
 127.0.0.1	paramount.go2cloud.org
+127.0.0.1	pardtosinsing.ru
 127.0.0.1	parenting.searchwho.com
 127.0.0.1	paris.typepad.com
 127.0.0.1	paritycube.go2cloud.org
@@ -36053,6 +36056,7 @@
 127.0.0.1	rates.insureship.com
 127.0.0.1	rating.openstat.com
 127.0.0.1	rating.openstat.ru
+127.0.0.1	ratsparropret.ru
 127.0.0.1	ratx9.voluumtrk.com
 127.0.0.1	ravenstonedigital.go2cloud.org
 127.0.0.1	rawdinner.justclick.ru
@@ -36417,12 +36421,12 @@
 127.0.0.1	roia.hutchmedia.com
 127.0.0.1	roiadtracker.com
 127.0.0.1	roitracker.com
-127.0.0.1	rollbar.com
 127.0.0.1	romanticfm.2cnt.net
 127.0.0.1	romview.atdmt.com.915.9004.302br.net
 127.0.0.1	ronaldheft.com
 127.0.0.1	roomkey.d1.sc.omtrdc.net
 127.0.0.1	rootzwiki.us.intellitxt.com
+127.0.0.1	ropretratspar.com
 127.0.0.1	rose.ixbt.com
 127.0.0.1	rosettastone.tt.omtrdc.net
 127.0.0.1	rotabanner.kulichki.net
@@ -36551,6 +36555,7 @@
 127.0.0.1	ryerose.net
 127.0.0.1	rygpq.voluumtrk.com
 127.0.0.1	ryield.jmp9.com
+127.0.0.1	ryropthetsed.ru
 127.0.0.1	rytj3.voluumtrk.com
 127.0.0.1	rzr.tractionize.com
 127.0.0.1	s-adserver.cxad.cxense.com
@@ -37535,7 +37540,6 @@
 127.0.0.1	sndkorea.co.kr
 127.0.0.1	sndkorea.nowcdn.co.kr
 127.0.0.1	snimi-sam.justclick.ru
-127.0.0.1	snippets-stats.mozilla.org
 127.0.0.1	snonline.ivwbox.de
 127.0.0.1	snowplow-collector.sugarops.com
 127.0.0.1	soa.adition.com
@@ -38265,6 +38269,7 @@
 127.0.0.1	stats.united-domains.de
 127.0.0.1	stats.unity3d.com
 127.0.0.1	stats.uswitch.com
+127.0.0.1	stats.valaffiliates.com
 127.0.0.1	stats.vertriebsassistent.de
 127.0.0.1	stats.viddler.com
 127.0.0.1	stats.virtuemart.net
@@ -39062,7 +39067,6 @@
 127.0.0.1	tigerloads.com
 127.0.0.1	tigertext.com
 127.0.0.1	til.go2cloud.org
-127.0.0.1	tiles.services.mozilla.com
 127.0.0.1	tiller.co
 127.0.0.1	tim-eckhoff.us
 127.0.0.1	timebus2.112.2o7.net
@@ -39376,6 +39380,7 @@
 127.0.0.1	track.reinvigorate.net
 127.0.0.1	track.right-ads.com
 127.0.0.1	track.ringcentral.com
+127.0.0.1	track.scanguard.com
 127.0.0.1	track.scanmyphones.com
 127.0.0.1	track.scorpiointeractive.com
 127.0.0.1	track.searchignite.com
@@ -39843,6 +39848,7 @@
 127.0.0.1	trk.vidible.tv
 127.0.0.1	trk.vindicosuite.com
 127.0.0.1	trk02.gtrk.info
+127.0.0.1	trk1.opanw.com
 127.0.0.1	trk2it4.com
 127.0.0.1	trk4.com
 127.0.0.1	trkag1.com
@@ -40389,7 +40395,6 @@
 127.0.0.1	us.js.yimg.com
 127.0.0.1	us.marketgid.com
 127.0.0.1	us.static.planet49.com
-127.0.0.1	us.upgradenow24.com
 127.0.0.1	us.wa.ui-portal.com
 127.0.0.1	us.webprodcdn.com
 127.0.0.1	us.winninganswers.net
@@ -45496,6 +45501,7 @@
 127.0.0.1	www.cartonetwork.com
 127.0.0.1	www.cartoonnrtwork.com
 127.0.0.1	www.casalemedia.com
+127.0.0.1	www.casalparis.cat
 127.0.0.1	www.cash-duck.com
 127.0.0.1	www.cash4files.com
 127.0.0.1	www.cash4webmaster.de
@@ -45610,6 +45616,7 @@
 127.0.0.1	www.compete.com
 127.0.0.1	www.competeinc.com
 127.0.0.1	www.comscore.com
+127.0.0.1	www.comunedeicittadini.it
 127.0.0.1	www.con.vmsn.de
 127.0.0.1	www.conductedresearch.com
 127.0.0.1	www.connectlinking1.com
@@ -46920,7 +46927,6 @@
 127.0.0.1	www.robotreplay.com
 127.0.0.1	www.roiadtracker.com
 127.0.0.1	www.roitracker.com
-127.0.0.1	www.rollbar.com
 127.0.0.1	www.rotrk.com
 127.0.0.1	www.roxyaffiliates.com
 127.0.0.1	www.rsmrttracking.com
@@ -48014,4 +48020,4 @@
 127.0.0.1	zz.zeroredirect1.com
 127.0.0.1	zzz.clickbank.net
 127.0.0.1	_thums.ero-advertising.com
-# Hosts: 48006
+# Hosts: 48012

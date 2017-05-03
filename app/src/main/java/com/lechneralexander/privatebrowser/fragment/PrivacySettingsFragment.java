@@ -34,6 +34,7 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
     private static final String SETTINGS_CLEARCOOKIES = "clear_cookies";
     private static final String SETTINGS_CLEARWEBSTORAGE = "clear_webstorage";
     private static final String SETTINGS_WEBSTORAGEEXIT = "clear_webstorage_exit";
+    private static final String SETTINGS_COOKIESENABLED = "cookies_enabled";
     private static final String SETTINGS_DONOTTRACK = "do_not_track";
     private static final String SETTINGS_IDENTIFYINGHEADERS = "remove_identifying_headers";
     private static final String SETTINGS_FINISH_ON_PAUSE = "finish_on_pause";
@@ -60,6 +61,7 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
         CheckBoxPreference cbsavepasswords = (CheckBoxPreference) findPreference(SETTINGS_SAVEPASSWORD);
         CheckBoxPreference cbcacheexit = (CheckBoxPreference) findPreference(SETTINGS_CACHEEXIT);
         CheckBoxPreference cbFinishOnPause = (CheckBoxPreference) findPreference(SETTINGS_FINISH_ON_PAUSE);
+        CheckBoxPreference cbCookiesEnabled = (CheckBoxPreference) findPreference(SETTINGS_COOKIESENABLED);
         CheckBoxPreference cbDoNotTrack = (CheckBoxPreference) findPreference(SETTINGS_DONOTTRACK);
         CheckBoxPreference cbIdentifyingHeaders = (CheckBoxPreference) findPreference(SETTINGS_IDENTIFYINGHEADERS);
 
@@ -69,12 +71,14 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
         cbcacheexit.setOnPreferenceChangeListener(this);
         cbDoNotTrack.setOnPreferenceChangeListener(this);
         cbFinishOnPause.setOnPreferenceChangeListener(this);
+        cbCookiesEnabled.setOnPreferenceChangeListener(this);
         cbIdentifyingHeaders.setOnPreferenceChangeListener(this);
 
         cbsavepasswords.setChecked(mPreferenceManager.getSavePasswordsEnabled());
         cbcacheexit.setChecked(mPreferenceManager.getClearCacheExit());
         cbDoNotTrack.setChecked(mPreferenceManager.getDoNotTrackEnabled() && Utils.doesSupportHeaders());
         cbFinishOnPause.setChecked(mPreferenceManager.getFinishOnPause());
+        cbCookiesEnabled.setChecked(mPreferenceManager.getCookiesEnabled());
         cbIdentifyingHeaders.setChecked(mPreferenceManager.getRemoveIdentifyingHeadersEnabled() && Utils.doesSupportHeaders());
 
         cbDoNotTrack.setEnabled(Utils.doesSupportHeaders());
@@ -203,6 +207,9 @@ public class PrivacySettingsFragment extends LightningPreferenceFragment impleme
                 return true;
             case SETTINGS_CACHEEXIT:
                 mPreferenceManager.setClearCacheExit((Boolean) newValue);
+                return true;
+            case SETTINGS_COOKIESENABLED:
+                mPreferenceManager.setCookiesEnabled((Boolean) newValue);
                 return true;
             case SETTINGS_DONOTTRACK:
                 mPreferenceManager.setDoNotTrackEnabled((Boolean) newValue);

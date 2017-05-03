@@ -25,7 +25,7 @@ public class IncognitoActivity extends BrowserActivity {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                     CookieSyncManager.createInstance(IncognitoActivity.this);
                 }
-                cookieManager.setAcceptCookie(mPreferences.getIncognitoCookiesEnabled());
+                cookieManager.setAcceptCookie(mPreferences.getCookiesEnabled());
                 subscriber.onComplete();
             }
         });

@@ -15,7 +15,7 @@ import com.lechneralexander.privatebrowser.download.DownloadHandler;
 public class PreferenceManager {
 
     public boolean getBlockThirdPartyCookiesEnabled() {
-        return false;
+        return true;
     }
 
 
@@ -43,6 +43,7 @@ public class PreferenceManager {
         public static final String RENDERING_MODE = "renderMode";
         public static final String ENABLE_COLOR_MODE = "colorMode";
         public static final String URL_BOX_CONTENTS = "urlContent";
+        public static final String COOKIES_ENABLED = "cookiesEnabled";
         public static final String INVERT_COLORS = "invertColors";
         public static final String READING_TEXT_SIZE = "readingTextSize";
         public static final String THEME = "Theme";
@@ -112,10 +113,6 @@ public class PreferenceManager {
         return mPrefs.getBoolean(Name.ENABLE_COLOR_MODE, true);
     }
 
-    public boolean getCookiesEnabled() {
-        return true;
-    }
-
     @NonNull
     public String getDownloadDirectory() {
         return mPrefs.getString(Name.DOWNLOAD_DIRECTORY, DownloadHandler.DEFAULT_DOWNLOAD_PATH);
@@ -139,8 +136,8 @@ public class PreferenceManager {
         return mPrefs.getString(Name.HOMEPAGE, Constants.HOMEPAGE);
     }
 
-    public boolean getIncognitoCookiesEnabled() {
-        return true;
+    public boolean getCookiesEnabled() {
+        return mPrefs.getBoolean(Name.COOKIES_ENABLED, true);
     }
 
     public boolean getInvertColors() {
@@ -266,6 +263,10 @@ public class PreferenceManager {
 
     public void setRemoveIdentifyingHeadersEnabled(boolean enabled) {
         putBoolean(Name.IDENTIFYING_HEADERS, enabled);
+    }
+
+    public void setCookiesEnabled(boolean enabled) {
+        putBoolean(Name.COOKIES_ENABLED, enabled);
     }
 
     public void setDoNotTrackEnabled(boolean doNotTrack) {
