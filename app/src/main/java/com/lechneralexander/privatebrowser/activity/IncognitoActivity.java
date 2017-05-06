@@ -2,9 +2,11 @@ package com.lechneralexander.privatebrowser.activity;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Menu;
+import android.view.WindowManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 
@@ -35,6 +37,15 @@ public class IncognitoActivity extends BrowserActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Disable preview screenshot in recent apps!
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        // Delete all private data as it cannot be guaranteed this was called (e.g. closing app in recent apps)
+        this.performExitCleanUp();
     }
 
     @Override
