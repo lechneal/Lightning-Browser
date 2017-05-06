@@ -3,8 +3,6 @@
  */
 package com.lechneralexander.privatebrowser.constant;
 
-import com.lechneralexander.privatebrowser.BuildConfig;
-
 public final class Constants {
 
     private Constants() {

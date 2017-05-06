@@ -2,7 +2,6 @@ package com.lechneralexander.privatebrowser.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -41,7 +40,6 @@ import com.lechneralexander.privatebrowser.app.BrowserApp;
 import com.lechneralexander.privatebrowser.async.AsyncExecutor;
 import com.lechneralexander.privatebrowser.bus.BookmarkEvents;
 import com.lechneralexander.privatebrowser.bus.BrowserEvents;
-import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.controller.UIController;
 import com.lechneralexander.privatebrowser.database.BookmarkManager;
 import com.lechneralexander.privatebrowser.database.HistoryItem;
@@ -54,7 +52,6 @@ import com.lechneralexander.privatebrowser.react.OnSubscribe;
 import com.lechneralexander.privatebrowser.react.Schedulers;
 import com.lechneralexander.privatebrowser.react.Subscriber;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;
-import com.lechneralexander.privatebrowser.view.LightningView;
 
 public class BookmarksFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
 

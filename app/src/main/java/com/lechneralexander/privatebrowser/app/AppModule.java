@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import com.squareup.otto.Bus;
 
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 

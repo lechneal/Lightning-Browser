@@ -12,9 +12,6 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewDatabase;
 
-import com.lechneralexander.privatebrowser.activity.BrowserActivity;
-import com.lechneralexander.privatebrowser.app.BrowserApp;
-
 /**
  * Copyright 8/4/2015 Anthony Restaino
  */

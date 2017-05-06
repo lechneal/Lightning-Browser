@@ -5,7 +5,6 @@ package com.lechneralexander.privatebrowser.fragment;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.CheckBoxPreference;
@@ -14,15 +13,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.lechneralexander.privatebrowser.R;
-import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.download.DownloadHandler;
 import com.lechneralexander.privatebrowser.utils.ConfigUtils;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;

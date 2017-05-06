@@ -13,7 +13,6 @@ import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.os.Build;
-import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;

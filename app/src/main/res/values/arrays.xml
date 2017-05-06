@@ -18,14 +18,6 @@
         <item>@string/action_bookmarks</item>
         <item>@string/action_webpage</item>
     </string-array>
-    
-    <string-array name="text_size">
-        <item>@string/size_largest</item>
-        <item>@string/size_large</item>
-        <item>@string/size_normal</item>
-        <item>@string/size_small</item>
-        <item>@string/size_smallest</item>
-    </string-array>
 
     <string-array name="themes">
         <item>@string/light_theme</item>

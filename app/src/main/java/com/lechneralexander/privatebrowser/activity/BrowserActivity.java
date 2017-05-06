@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
-import android.provider.Browser;
 import android.provider.MediaStore;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;

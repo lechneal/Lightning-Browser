@@ -1,11 +1,9 @@
 package com.lechneralexander.privatebrowser.app;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.webkit.WebView;
 
 import com.squareup.otto.Bus;
@@ -17,7 +15,6 @@ import javax.inject.Inject;
 
 import com.lechneralexander.privatebrowser.BuildConfig;
 import com.lechneralexander.privatebrowser.preference.PreferenceManager;
-import com.lechneralexander.privatebrowser.utils.MemoryLeakUtils;
 
 public class BrowserApp extends Application {
 

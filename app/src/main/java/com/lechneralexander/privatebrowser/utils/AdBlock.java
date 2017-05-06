@@ -19,7 +19,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.lechneralexander.privatebrowser.app.BrowserApp;
-import com.lechneralexander.privatebrowser.constant.Constants;
 import com.lechneralexander.privatebrowser.preference.PreferenceManager;
 
 @Singleton
