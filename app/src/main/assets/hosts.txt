@@ -223,6 +223,7 @@
 127.0.0.1	0rlbs.voluumtrk.com
 127.0.0.1	0wptk.voluumtrk.com
 127.0.0.1	0yn3h.voluumtrk.com
+127.0.0.1	1-1ads.com
 127.0.0.1	1.che-ka.com
 127.0.0.1	1.chipde.damoh.schneevonmorgen.com
 127.0.0.1	1.gmxnet.damoh.schneevonmorgen.com
@@ -16029,6 +16030,7 @@
 127.0.0.1	addeppo.com
 127.0.0.1	addesktop.com
 127.0.0.1	addfreestats.com
+127.0.0.1	addiliate.com
 127.0.0.1	addiply.com
 127.0.0.1	addltest.timesink.com
 127.0.0.1	addoer.com
@@ -17097,6 +17099,7 @@
 127.0.0.1	ads.lfstmedia.com
 127.0.0.1	ads.link4ads.com
 127.0.0.1	ads.linkbucks.com
+127.0.0.1	ads.linkedin.com
 127.0.0.1	ads.linksponsor.com
 127.0.0.1	ads.linktracking.net
 127.0.0.1	ads.linuxjournal.com
@@ -18659,6 +18662,7 @@
 127.0.0.1	adsvr.adknowledge.com
 127.0.0.1	adsvr.adsparc.net
 127.0.0.1	adsvr.taipeilink.net
+127.0.0.1	adswakeup.com
 127.0.0.1	adswap.com
 127.0.0.1	adsweb.tiscali.de
 127.0.0.1	adsweb.tiscali.it
@@ -20521,7 +20525,6 @@
 127.0.0.1	bam-3.nr-data.net
 127.0.0.1	bam-4.nr-data.net
 127.0.0.1	bam-5.nr-data.net
-127.0.0.1	bam.nr-data.net
 127.0.0.1	ban.krooncasino.com
 127.0.0.1	ban.promotools.biz
 127.0.0.1	ban3ers.ero-advertising.com
@@ -25056,6 +25059,7 @@
 127.0.0.1	cori-borne.us
 127.0.0.1	cori-stogner.us
 127.0.0.1	corinne-gump.us
+127.0.0.1	corolate.win
 127.0.0.1	corpext.msitadfs.glbdns2.microsoft.com
 127.0.0.1	corrie-deloney.us
 127.0.0.1	corrie-mchale.us
@@ -26372,6 +26376,7 @@
 127.0.0.1	cpm.tz4.com
 127.0.0.1	cpm.wargaming.net
 127.0.0.1	cpm.worldofwarplanes.com
+127.0.0.1	cpm10.com
 127.0.0.1	cpmfun.com
 127.0.0.1	cpmleader.com
 127.0.0.1	cpro.baidu.com
@@ -27263,7 +27268,6 @@
 127.0.0.1	digitaladvisor.go2cloud.org
 127.0.0.1	digitalfernsehen.de.intellitxt.com
 127.0.0.1	digitalone.go2cloud.org
-127.0.0.1	digitalriver.com
 127.0.0.1	digitalsalesmedia.go2cloud.org
 127.0.0.1	digitrack.go2cloud.org
 127.0.0.1	digits.com
@@ -29987,6 +29991,7 @@
 127.0.0.1	gr2hk6ze.com
 127.0.0.1	gr8.com
 127.0.0.1	gr8nk.voluumtrk.com
+127.0.0.1	grabify.link
 127.0.0.1	grace-hansley.us
 127.0.0.1	graffix.adition.com
 127.0.0.1	grafix.xxxcounter.com
@@ -30190,6 +30195,7 @@
 127.0.0.1	hhdevel.com
 127.0.0.1	hhioj.voluumtrk.com
 127.0.0.1	hi.hellobar.com
+127.0.0.1	hicpm5.com
 127.0.0.1	hide.io
 127.0.0.1	hideaway.com
 127.0.0.1	hield.jmp9.com
@@ -30425,6 +30431,7 @@
 127.0.0.1	html5zombo.com
 127.0.0.1	htmlcenter.us.intellitxt.com
 127.0.0.1	htmlcounter.com
+127.0.0.1	htmonster.com
 127.0.0.1	htt.jmp9.com
 127.0.0.1	http.content.ru4.com
 127.0.0.1	http.edge.ru4.com
@@ -31352,6 +31359,7 @@
 127.0.0.1	j5g2b.voluumtrk.com
 127.0.0.1	j5sjr.voluumtrk.com
 127.0.0.1	j8r2b.voluumtrk.com
+127.0.0.1	j94kp2o.com
 127.0.0.1	jaapt.voluumtrk.com
 127.0.0.1	jackie-dibella.us
 127.0.0.1	jackpotgambling.net
@@ -31733,6 +31741,7 @@
 127.0.0.1	kewlrank.com
 127.0.0.1	keydownload.go2cloud.org
 127.0.0.1	keynotedeviceanywhere.com
+127.0.0.1	keyoptimize.com
 127.0.0.1	keystat.com
 127.0.0.1	keyword.daumdn.com
 127.0.0.1	keyword.netscape.com
@@ -32456,7 +32465,6 @@
 127.0.0.1	logs-01.loggly.com
 127.0.0.1	logs.51cto.com
 127.0.0.1	logs.aiya.com.cn
-127.0.0.1	logs.cafewell.com
 127.0.0.1	logs.dashlane.com
 127.0.0.1	logs.eresmas.com
 127.0.0.1	logs.eternityco.net
@@ -32522,6 +32530,7 @@
 127.0.0.1	look.urs.tw
 127.0.0.1	look2me.com
 127.0.0.1	lookcpm.com
+127.0.0.1	lookest.win
 127.0.0.1	looksa.com
 127.0.0.1	looksmart.com
 127.0.0.1	looksmartcollect.247realmedia.com
@@ -33199,6 +33208,7 @@
 127.0.0.1	metrics.veryfunnyads.com
 127.0.0.1	metrics.wikinvest.com
 127.0.0.1	metrics.zales.com
+127.0.0.1	metricskey.net
 127.0.0.1	metrika.yandex.by
 127.0.0.1	metrika.yandex.com
 127.0.0.1	metrika.yandex.com.tr
@@ -33620,7 +33630,6 @@
 127.0.0.1	mwc.velti.com
 127.0.0.1	mx.adserver.yahoo.com
 127.0.0.1	mx.ero-advertising.com
-127.0.0.1	mx.yandex.ru
 127.0.0.1	mx1.revsci.net
 127.0.0.1	mx3ih.voluumtrk.com
 127.0.0.1	mxmacromedia.112.2o7.net
@@ -34169,6 +34178,7 @@
 127.0.0.1	nuera.go2cloud.org
 127.0.0.1	nuggad.net
 127.0.0.1	numb.hotshare.biz
+127.0.0.1	nurno.com
 127.0.0.1	nv.ad.naver.com
 127.0.0.1	nv4n8.voluumtrk.com
 127.0.0.1	nvk.realsecuredredirect.com
@@ -34468,6 +34478,7 @@
 127.0.0.1	onclasrv.com
 127.0.0.1	onclickads.net
 127.0.0.1	onclickads2.net
+127.0.0.1	onclickmax.com
 127.0.0.1	onclickrev.com
 127.0.0.1	onclkds.com
 127.0.0.1	one-time-offer.com
@@ -34655,6 +34666,7 @@
 127.0.0.1	output.nend.net
 127.0.0.1	outsidethebeltway.us.intellitxt.com
 127.0.0.1	ov.yahoo.co.jp
+127.0.0.1	overely.com
 127.0.0.1	overpro.com
 127.0.0.1	oversee.d.chango.com
 127.0.0.1	oversee.net
@@ -34944,6 +34956,7 @@
 127.0.0.1	partners.yobt.tv
 127.0.0.1	pas.private4.com
 127.0.0.1	pass.duba.net
+127.0.0.1	passinst.com
 127.0.0.1	passport.pfn.bz
 127.0.0.1	pasta.dianxinos.com
 127.0.0.1	pastilon.com
@@ -36343,6 +36356,7 @@
 127.0.0.1	rewardsflow.com
 127.0.0.1	rewardster.com
 127.0.0.1	rewqs.com
+127.0.0.1	rexmox.com
 127.0.0.1	rextk.com
 127.0.0.1	rextopia.com
 127.0.0.1	rextrk.com
@@ -36953,6 +36967,7 @@
 127.0.0.1	search.superfish.com
 127.0.0.1	search.url.com
 127.0.0.1	search.us.com
+127.0.0.1	search.vertoz.com
 127.0.0.1	searchacts.com
 127.0.0.1	searchesinteractive.com
 127.0.0.1	searchfusion.com
@@ -37750,6 +37765,7 @@
 127.0.0.1	sshowads.pubmatic.com
 127.0.0.1	sshtunnel.at
 127.0.0.1	ssi.go2cloud.org
+127.0.0.1	ssl-cd.com
 127.0.0.1	ssl-default.2cnt.net
 127.0.0.1	ssl-error.2cnt.net
 127.0.0.1	ssl-g.searchgist.com
@@ -37860,6 +37876,7 @@
 127.0.0.1	staging.streamate.doublepimp.com
 127.0.0.1	stags.bluekai.com
 127.0.0.1	staples.tt.omtrdc.net
+127.0.0.1	star.pulseonclick.com
 127.0.0.1	stare.adrevolver.com
 127.0.0.1	stargamesaffiliate.com
 127.0.0.1	starsads.com
@@ -37940,7 +37957,6 @@
 127.0.0.1	static.2mdn.net
 127.0.0.1	static.acs86.com
 127.0.0.1	static.addinto.com
-127.0.0.1	static.addtoany.com
 127.0.0.1	static.addynamo.net
 127.0.0.1	static.adfarm1.adition.com
 127.0.0.1	static.ads.crakmedia.com
@@ -38565,6 +38581,7 @@
 127.0.0.1	t.acxiom-online.com
 127.0.0.1	t.adbuyer.com
 127.0.0.1	t.adonly.com
+127.0.0.1	t.afftrackr.com
 127.0.0.1	t.appsflyer.com
 127.0.0.1	t.atdmt.com
 127.0.0.1	t.bimvid.com
@@ -38996,7 +39013,6 @@
 127.0.0.1	thehitsusa.com
 127.0.0.1	theinterwebs.space
 127.0.0.1	theoads.com
-127.0.0.1	theoads.com.
 127.0.0.1	theodosium.com
 127.0.0.1	thepoint.go2cloud.org
 127.0.0.1	theresa-buchman.us
@@ -39046,6 +39062,7 @@
 127.0.0.1	thor-cpa.com
 127.0.0.1	threivetrack.com
 127.0.0.1	thruport.com
+127.0.0.1	ths9j89.com
 127.0.0.1	thumb.ero-advertising.com
 127.0.0.1	thumbads.ero-advertising.com
 127.0.0.1	thumbs.ero-advertising.com
@@ -39611,6 +39628,7 @@
 127.0.0.1	tracking.netzathleten-media.de
 127.0.0.1	tracking.nuasti.com
 127.0.0.1	tracking.olx-st.com
+127.0.0.1	tracking.orixa-media.com
 127.0.0.1	tracking.perfecttoolmedia.com
 127.0.0.1	tracking.performancerevenues.com
 127.0.0.1	tracking.plattformad.com
@@ -39954,6 +39972,7 @@
 127.0.0.1	u-on.eu
 127.0.0.1	u-porn.mp1.mobi
 127.0.0.1	u.begun.ru
+127.0.0.1	u.cubeupload.com
 127.0.0.1	u.extreme-dm.com
 127.0.0.1	u.heatmap.it
 127.0.0.1	u.moatads.com
@@ -40586,7 +40605,6 @@
 127.0.0.1	video.oms.eu
 127.0.0.1	video.unrulymedia.com
 127.0.0.1	videoads.theonion.com
-127.0.0.1	videobug.net
 127.0.0.1	videocodezone.us.intellitxt.com
 127.0.0.1	videofun.me
 127.0.0.1	videoplus.vo.llnwd.net
@@ -45091,6 +45109,7 @@
 127.0.0.1	www.adclix.com
 127.0.0.1	www.adclub.net
 127.0.0.1	www.adcron.com
+127.0.0.1	www.addiliate.com
 127.0.0.1	www.addinto.com
 127.0.0.1	www.addme.com
 127.0.0.1	www.addthis.com
@@ -45645,6 +45664,7 @@
 127.0.0.1	www.coreg-feed.fr
 127.0.0.1	www.coremetrics.com
 127.0.0.1	www.corinne-gump.us
+127.0.0.1	www.corolate.win
 127.0.0.1	www.corrie-mchale.us
 127.0.0.1	www.corrine-scroggins.us
 127.0.0.1	www.cortoonnetwork.com
@@ -45697,6 +45717,7 @@
 127.0.0.1	www.cpd8.net
 127.0.0.1	www.cpm-plus.com
 127.0.0.1	www.cpm.biz
+127.0.0.1	www.cpm10.com
 127.0.0.1	www.cpmaffiliation.com
 127.0.0.1	www.cpmfun.com
 127.0.0.1	www.cpmleader.com
@@ -46092,6 +46113,7 @@
 127.0.0.1	www.helen-ponte.us
 127.0.0.1	www.hellen-baca.us
 127.0.0.1	www.herbalaffiliateprogram.com
+127.0.0.1	www.hicpm5.com
 127.0.0.1	www.hide.io
 127.0.0.1	www.highcharts.com
 127.0.0.1	www.highcpms.com
@@ -46146,6 +46168,7 @@
 127.0.0.1	www.html-email-marketing.com
 127.0.0.1	www.html5zombo.com
 127.0.0.1	www.htmlcounter.com
+127.0.0.1	www.htmonster.com
 127.0.0.1	www.hubtraffic.com
 127.0.0.1	www.humanclick.com
 127.0.0.1	www.hurricanedigitalmedia.com
@@ -46237,6 +46260,7 @@
 127.0.0.1	www.ivwbox.de
 127.0.0.1	www.iwebimg.net
 127.0.0.1	www.iyfnzgb.com
+127.0.0.1	www.j94kp2o.com
 127.0.0.1	www.jade-aultman.us
 127.0.0.1	www.jadina-counter.de
 127.0.0.1	www.jag.vmsn.de
@@ -46323,6 +46347,7 @@
 127.0.0.1	www.kerrie-bedoya.us
 127.0.0.1	www.kerrie-felker.us
 127.0.0.1	www.kewlrank.com
+127.0.0.1	www.keyoptimize.com
 127.0.0.1	www.keywordblocks.com
 127.0.0.1	www.keywordmax.com
 127.0.0.1	www.kilopog.com
@@ -46427,6 +46452,7 @@
 127.0.0.1	www.lokhlp.com
 127.0.0.1	www.lolfun.com
 127.0.0.1	www.lookcpm.com
+127.0.0.1	www.lookest.win
 127.0.0.1	www.looksmart.com
 127.0.0.1	www.looksmartclicks.com
 127.0.0.1	www.lora-keeler.us
@@ -46549,6 +46575,7 @@
 127.0.0.1	www.metabesttours.com
 127.0.0.1	www.metacount.com
 127.0.0.1	www.metricology.com
+127.0.0.1	www.metricskey.net
 127.0.0.1	www.mfsuite.com
 127.0.0.1	www.mgcash.com
 127.0.0.1	www.mgcashgate.com
@@ -46694,6 +46721,7 @@
 127.0.0.1	www.noelle-trotter.us
 127.0.0.1	www.nonames.tk
 127.0.0.1	www.noowho.com
+127.0.0.1	www.nurno.com
 127.0.0.1	www.nvtrak.com
 127.0.0.1	www.nxsrv1.com
 127.0.0.1	www.o2onbusiness.de
@@ -46716,6 +46744,7 @@
 127.0.0.1	www.omniture.com
 127.0.0.1	www.omtrdc.net
 127.0.0.1	www.onclickads.net
+127.0.0.1	www.onclickmax.com
 127.0.0.1	www.onclickpredictiv.com
 127.0.0.1	www.onclkds.com
 127.0.0.1	www.oneandonlynetwork.com
@@ -46760,6 +46789,7 @@
 127.0.0.1	www.parship.co.uk
 127.0.0.1	www.partner.gonamic.de
 127.0.0.1	www.partnercash.com
+127.0.0.1	www.passinst.com
 127.0.0.1	www.pastilon.com
 127.0.0.1	www.patricia-selders.us
 127.0.0.1	www.paycounter.com
@@ -47094,6 +47124,7 @@
 127.0.0.1	www.srver110.xyz
 127.0.0.1	www.srvpub.com
 127.0.0.1	www.ssangyong.co.il
+127.0.0.1	www.ssl-cd.com
 127.0.0.1	www.stacia-jose.us
 127.0.0.1	www.stacia-ware.us
 127.0.0.1	www.stargamesaffiliate.com
@@ -47178,6 +47209,7 @@
 127.0.0.1	www.thindivide.com
 127.0.0.1	www.thisteddagblad.dk
 127.0.0.1	www.thor-cpa.com
+127.0.0.1	www.ths9j89.com
 127.0.0.1	www.thumb.ero-advertising.com
 127.0.0.1	www.tickerassist.co.uk
 127.0.0.1	www.tickerland.com
@@ -47718,6 +47750,7 @@
 127.0.0.1	xl.topstat.com
 127.0.0.1	xl415.com
 127.0.0.1	xlite.counterpath.com
+127.0.0.1	xml.adservme.com
 127.0.0.1	xml.adtech.fr
 127.0.0.1	xml.fusionxml.com
 127.0.0.1	xml.ioam.de
@@ -48020,4 +48053,4 @@
 127.0.0.1	zz.zeroredirect1.com
 127.0.0.1	zzz.clickbank.net
 127.0.0.1	_thums.ero-advertising.com
-# Hosts: 48012
+# Hosts: 48045

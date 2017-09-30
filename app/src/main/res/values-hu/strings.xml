@@ -24,7 +24,6 @@
     <string name="action_copy">Link másolása</string>
     <string name="action_forward">Előre</string>
     <string name="settings">Beállítások</string>
-    <string name="password">Jelszavak mentése</string>
     <string name="agent">Felhasználó Ügynök</string>
     <string name="home">Főoldal</string>
     <string name="fullscreen">Teljes képernyős mód</string>
@@ -126,8 +125,8 @@
     <string name="mit_license">MIT License</string>
     <string name="url_contents">URL doboz tartalma</string>
     <string-array name="url_content_array">
-        <item >Domain (alapértelmezett)</item>
-        <item >URL</item>
+        <item >Domain</item>
+        <item >URL (alapértelmezett)</item>
         <item >Cím</item>
     </string-array>
     <string name="dark_theme">Sötét téma </string>

@@ -23,7 +23,6 @@
     <string name="action_copy">Copiar ligação</string>
     <string name="action_forward">Avançar</string>
     <string name="settings">Definições</string>
-    <string name="password">Guardar palavras-passe</string>
     <string name="agent">Agente</string>
     <string name="home">Página inicial</string>
     <string name="fullscreen">Modo de ecrã completo</string>
@@ -125,8 +124,8 @@
     <string name="mit_license">MIT License</string>
     <string name="url_contents">Conteúdo da caixa do URL</string>
     <string-array name="url_content_array">
-        <item>Domínio (padrão)</item>
-        <item>URL</item>
+        <item>Domínio</item>
+        <item>URL (padrão)</item>
         <item>Título</item>
     </string-array>
     <string name="dark_theme">Tema escuro</string>

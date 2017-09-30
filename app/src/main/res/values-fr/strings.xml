@@ -24,7 +24,6 @@
     <string name="action_copy">Copier l\'adresse</string>
     <string name="action_forward">Transférer</string>
     <string name="settings">Paramètres</string>
-    <string name="password">Enregistrer les mots de passe</string>
     <string name="agent">User Agent</string>
     <string name="home">Page d\'accueil</string>
     <string name="fullscreen">Mode plein écran</string>
@@ -137,8 +136,8 @@
     <string name="url_contents">Contenu du champs adresse</string>
     <string name="text_encoding">Encodage du texte</string>
     <string-array name="url_content_array">
-        <item >Domaine (par défaut)</item>
-        <item >Adresse</item>
+        <item >Domaine</item>
+        <item >Adresse (par défaut)</item>
         <item >Titre</item>
     </string-array>
     <string name="dark_theme">Thème sombre</string>

@@ -23,7 +23,6 @@
     <string name="action_copy">Copia Link</string>
     <string name="action_forward">Avanti</string>
     <string name="settings">Impostazioni</string>
-    <string name="password">Salva password</string>
     <string name="agent">User Agent</string>
     <string name="home">Home</string>
     <string name="fullscreen">Schermo Intero</string>
@@ -127,8 +126,8 @@
     <string name="url_contents">Contenuto del campo URL</string>
     <string name="text_encoding">Codifica del testo</string>
     <string-array name="url_content_array">
-        <item >Dominio (default)</item>
-        <item >URL</item>
+        <item >Dominio</item>
+        <item >URL (default)</item>
         <item >Titolo</item>
     </string-array>
     <string name="dark_theme">Scuro</string>

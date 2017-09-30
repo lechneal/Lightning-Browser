@@ -477,7 +477,12 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
                 setIsLoading(currentView.getProgress() < 100);
                 updateUrl(currentView.getUrl(), true);
             } else if (hasFocus && currentView != null) {
-
+                String url = currentView.getUrl();
+                if (UrlUtils.isSpecialUrl(url)) {
+                    mSearch.setText("");
+                } else {
+                    mSearch.setText(url);
+                }
                 // Hack to make sure the text gets selected
                 ((SearchView) v).selectAll();
                 mIcon = mClearIcon;
@@ -511,16 +516,16 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
 
         @Override
         public void onPreFocus() {
-            final LightningView currentView = mTabsManager.getCurrentTab();
-            if (currentView == null) {
-                return;
-            }
-            String url = currentView.getUrl();
-            if (UrlUtils.isSpecialUrl(url)) {
-                mSearch.setText("");
-            } else {
-                mSearch.setText(url);
-            }
+//            final LightningView currentView = mTabsManager.getCurrentTab();
+//            if (currentView == null) {
+//                return;
+//            }
+//            String url = currentView.getUrl();
+//            if (UrlUtils.isSpecialUrl(url)) {
+//                mSearch.setText("");
+//            } else {
+//                mSearch.setText(url);
+//            }
         }
     }
 
@@ -1061,15 +1066,17 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
             Utils.trimCache(BrowserActivity.this);
             Log.d(TAG, "Cache Cleared");
         }
-        Utils.clearAppCache(BrowserActivity.this);
-        Utils.clearDatabases(BrowserActivity.this);
-        Log.d(TAG, "AppCache and Databases");
-        WebUtils.clearFormData(BrowserActivity.this);
-        Log.d(TAG, "Form Data Cleared");
-        WebUtils.clearCookies(this);
-        Log.d(TAG, "Cookies Cleared");
-        WebUtils.clearWebStorage();
-        Log.d(TAG, "WebStorage Cleared");
+        if (mPreferences.getClearPrivateDataExit()) {
+            Utils.clearAppCache(BrowserActivity.this);
+            Utils.clearDatabases(BrowserActivity.this);
+            Log.d(TAG, "AppCache and Databases");
+            WebUtils.clearFormData(BrowserActivity.this);
+            Log.d(TAG, "Form Data Cleared");
+            WebUtils.clearCookies(this);
+            Log.d(TAG, "Cookies Cleared");
+            WebUtils.clearWebStorage();
+            Log.d(TAG, "WebStorage Cleared");
+        }
     }
 
     @Override
@@ -1337,12 +1344,12 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
         mEventBus.post(new BrowserEvents.CurrentPageUrl(url));
         if (shortUrl && !UrlUtils.isSpecialUrl(url)) {
             switch (mPreferences.getUrlBoxContentChoice()) {
-                case 0: // Default, show only the domain
+                case 0: // show only the domain
                     url = url.replaceFirst(Constants.HTTP, "");
                     url = Utils.getDomainName(url);
                     mSearch.setText(url);
                     break;
-                case 1: // URL, show the entire URL
+                case 1: // Default, URL, show the entire URL
                     mSearch.setText(url);
                     break;
                 case 2: // Title, show the page's title

@@ -23,6 +23,7 @@ public class PreferenceManager {
         public static final String BLOCK_ADS = "AdBlock";
         public static final String BLOCK_IMAGES = "blockimages";
         public static final String CLEAR_CACHE_EXIT = "cache";
+        public static final String SETTINGS_PRIVATEDATAEXIT = "privatedata";
         public static final String DOWNLOAD_DIRECTORY = "downloadLocation";
         public static final String FULL_SCREEN = "fullscreen";
         public static final String HIDE_STATUS_BAR = "hidestatus";
@@ -95,6 +96,10 @@ public class PreferenceManager {
 
     public boolean getClearCacheExit() {
         return mPrefs.getBoolean(Name.CLEAR_CACHE_EXIT, true);
+    }
+
+    public boolean getClearPrivateDataExit() {
+        return mPrefs.getBoolean(Name.SETTINGS_PRIVATEDATAEXIT, true);
     }
 
     public boolean getClearCookiesExitEnabled() {
@@ -183,7 +188,7 @@ public class PreferenceManager {
     }
 
     public boolean getSavePasswordsEnabled() {
-        return mPrefs.getBoolean(Name.SAVE_PASSWORDS, true);
+        return false;
     }
 
     public int getSearchChoice() {
@@ -204,7 +209,7 @@ public class PreferenceManager {
     }
 
     public int getUrlBoxContentChoice() {
-        return mPrefs.getInt(Name.URL_BOX_CONTENTS, 0);
+        return mPrefs.getInt(Name.URL_BOX_CONTENTS, 1);
     }
 
     public int getUseTheme() {
@@ -242,7 +247,7 @@ public class PreferenceManager {
     }
 
     public boolean getDoNotTrackEnabled() {
-        return mPrefs.getBoolean(Name.DO_NOT_TRACK, true);
+        return true;
     }
 
     public boolean getRemoveIdentifyingHeadersEnabled() {
@@ -267,10 +272,6 @@ public class PreferenceManager {
 
     public void setCookiesEnabled(boolean enabled) {
         putBoolean(Name.COOKIES_ENABLED, enabled);
-    }
-
-    public void setDoNotTrackEnabled(boolean doNotTrack) {
-        putBoolean(Name.DO_NOT_TRACK, doNotTrack);
     }
 
     public void setShowTabsInDrawer(boolean show) {
@@ -303,6 +304,10 @@ public class PreferenceManager {
 
     public void setClearCacheExit(boolean enable) {
         putBoolean(Name.CLEAR_CACHE_EXIT, enable);
+    }
+
+    public void setClearPrivateDataExit(boolean enable) {
+        putBoolean(Name.SETTINGS_PRIVATEDATAEXIT, enable);
     }
 
     public void setColorModeEnabled(boolean enable) {

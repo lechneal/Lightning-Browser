@@ -7,7 +7,6 @@
     <string name="action_copy">Kopiuj link</string>
     <string name="action_forward">Dalej</string>
     <string name="settings">Ustawienia</string>
-    <string name="password">Zapisuj hasła</string>
     <string name="agent">Przedstawiaj się jako</string>
     <string name="home">Strona domowa</string>
     <string name="fullscreen">Tryb pełnoekranowy</string>
@@ -120,8 +119,8 @@
     <string name="url_contents">Zawartość paska adresu</string>
     <string name="text_encoding">Kodowanie tekstu</string>
     <string-array name="url_content_array">
-        <item >Tylko domena (domyślne)</item>
-        <item >Pełny URL</item>
+        <item >Tylko domena</item>
+        <item >Pełny URL (domyślne)</item>
         <item >Tytuł strony</item>
     </string-array>
     <string name="dark_theme">Ciemny motyw</string>

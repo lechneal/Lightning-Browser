@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings">إعدادات المتصفح</string>
-    <string name="password">حفظ كلمات السر</string>
     <string name="agent">وكيل المستخدم</string>
     <string name="home">الصفحة الرئيسية</string>
     <string name="fullscreen">وضع ملء الشاشة</string>

@@ -2,7 +2,6 @@
 <resources>
 
     <string name="settings">הגדרות דפדפן</string>
-    <string name="password">שמור את הסיסמאות שלך</string>
     <string name="agent">סוכן משתמש</string>
     <string name="home">דף הבית</string>
     <string name="fullscreen">הפעל מצב מסך מלא</string>

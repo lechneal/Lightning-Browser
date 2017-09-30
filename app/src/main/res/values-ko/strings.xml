@@ -7,7 +7,6 @@
     <string name="action_copy">링크 복사</string>
     <string name="action_forward">앞으로</string>
     <string name="settings">설정</string>
-    <string name="password">암호 저장</string>
     <string name="agent">User Agent</string>
     <string name="home">홈페이지</string>
     <string name="fullscreen">전체 화면 모드</string>
@@ -110,8 +109,8 @@
     <string name="mit_license">MIT License</string>
     <string name="url_contents">URL 상자에 표시할 내용</string>
     <string-array name="url_content_array">
-        <item >도메인 (기본값)</item>
-        <item >URL</item>
+        <item >도메인</item>
+        <item >URL (기본값)</item>
         <item >페이지 제목</item>
     </string-array>
     <string name="dark_theme">어두운 테마 사용</string>

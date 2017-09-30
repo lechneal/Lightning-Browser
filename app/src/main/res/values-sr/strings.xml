@@ -24,7 +24,6 @@
     <string name="action_copy">Копирај везу</string>
     <string name="action_forward">Напред</string>
     <string name="settings">Поставке</string>
-    <string name="password">Сачувај лозинке</string>
     <string name="agent">Идентификација</string>
     <string name="home">Почетна страница</string>
     <string name="fullscreen">Цео екран</string>
@@ -137,8 +136,8 @@
     <string name="url_contents">Садржај УРЛ бокса</string>
     <string name="text_encoding">Кодирање текста</string>
     <string-array name="url_content_array">
-        <item >Домен (подраз.)</item>
-        <item >УРЛ</item>
+        <item >Домен</item>
+        <item >УРЛ (подраз.)</item>
         <item >Наслов</item>
     </string-array>
     <string name="tabs">Језичци</string>

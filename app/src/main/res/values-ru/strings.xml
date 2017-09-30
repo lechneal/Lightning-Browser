@@ -7,7 +7,6 @@
     <string name="action_copy">Копировать ссылку</string>
     <string name="action_forward">Вперёд</string>
     <string name="settings">Настройки</string>
-    <string name="password">Сохранять пароли</string>
     <string name="agent">User Agent</string>
     <string name="home">Новая вкладка</string>
     <string name="fullscreen">Во весь экран</string>

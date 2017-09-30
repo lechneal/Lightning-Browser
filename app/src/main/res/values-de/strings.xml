@@ -24,7 +24,6 @@
     <string name="action_copy">Link kopieren</string>
     <string name="action_forward">Weiter</string>
     <string name="settings">Einstellungen</string>
-    <string name="password">Passwörter speichern</string>
     <string name="agent">User-Agent</string>
     <string name="home">Startseite</string>
     <string name="fullscreen">Vollbildmodus aktivieren</string>
@@ -126,8 +125,8 @@
     <string name="mit_license">MIT Lizenz</string>
     <string name="url_contents">URL-Box Inhalt</string>
     <string-array name="url_content_array">
-        <item >Domain (Standard)</item>
-        <item >URL</item>
+        <item >Domain</item>
+        <item >URL (Standard)</item>
         <item >Titel</item>
     </string-array>
     <string name="action_folder">Ordner</string>
