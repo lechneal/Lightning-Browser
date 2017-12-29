@@ -288,7 +288,7 @@ public class LightningWebClient extends WebViewClient {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
+//6749
     @Override
     public boolean shouldOverrideUrlLoading(@NonNull WebView view, @NonNull String url) {
 

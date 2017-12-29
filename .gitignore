@@ -31,6 +31,9 @@ gradle.properties
 # Gradle
 build
 .gradle
+gradle
+gradlew
+gradlew.bat
 
 # https://gist.github.com/AltNico/c581f370b3f88715876b
 *.apk
