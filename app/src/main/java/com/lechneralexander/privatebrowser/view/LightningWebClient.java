@@ -288,7 +288,27 @@ public class LightningWebClient extends WebViewClient {
         AlertDialog alert = builder.create();
         alert.show();
     }
-//6749
+
+    private String getOriginalUA(@NonNull WebView view) {
+        // Overridden UA string
+        String alreadySetUA = view.getSettings().getUserAgentString();
+
+        // Next call to getUserAgentString() will get us the default
+        view.getSettings().setUserAgentString(null);
+
+        // Devise a method for parsing the UA string
+        String webViewVersion = view.getSettings().getUserAgentString();
+
+        // Revert to overriden UA string
+        view.getSettings().setUserAgentString(alreadySetUA);
+
+        return webViewVersion != null ? webViewVersion : "";
+    }
+
+    private boolean usingChrome63(@NonNull WebView view) {
+        return getOriginalUA(view).contains("Chrome/63");
+    }
+
     @Override
     public boolean shouldOverrideUrlLoading(@NonNull WebView view, @NonNull String url) {
 
@@ -300,8 +320,13 @@ public class LightningWebClient extends WebViewClient {
             return true;
         }
         if (mLightningView.isIncognito() && Utils.doesSupportHeaders()) {
-            view.loadUrl(url, headers);
-            return true;
+            if (usingChrome63(view)) {
+                return false;
+            }
+            else {
+                view.loadUrl(url, headers);
+                return true;
+            }
         }
         if (url.startsWith("about:") && Utils.doesSupportHeaders()) {
             view.loadUrl(url, headers);
