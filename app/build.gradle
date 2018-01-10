@@ -3,14 +3,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.lechneralexander.privatebrowser"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 32
-        versionName "2.3.0"
+        versionCode 33
+        versionName "2.3.1"
     }
 
     buildTypes {

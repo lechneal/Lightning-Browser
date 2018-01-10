@@ -111,3 +111,6 @@
 -dontwarn org.apache.http.conn.ssl.DefaultHostnameVerifier
 
 -dontwarn org.apache.http.HttpHost
+
+# https://github.com/google/dagger/issues/645
+-dontwarn com.google.errorprone.annotations.*
