@@ -28,6 +28,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
     private static final String SETTINGS_ADS = "cb_ads";
     private static final String SETTINGS_IMAGES = "cb_images";
     private static final String SETTINGS_JAVASCRIPT = "cb_javascript";
+    private static final String SETTINGS_SCREENSHOTS = "cb_screenshots";
     private static final String SETTINGS_COLORMODE = "cb_colormode";
     private static final String SETTINGS_USERAGENT = "agent";
     private static final String SETTINGS_DOWNLOAD = "download";
@@ -62,6 +63,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
         CheckBoxPreference cbAds = (CheckBoxPreference) findPreference(SETTINGS_ADS);
         CheckBoxPreference cbImages = (CheckBoxPreference) findPreference(SETTINGS_IMAGES);
         CheckBoxPreference cbJsScript = (CheckBoxPreference) findPreference(SETTINGS_JAVASCRIPT);
+        CheckBoxPreference cbScreenshots = (CheckBoxPreference) findPreference(SETTINGS_SCREENSHOTS);
         CheckBoxPreference cbColorMode = (CheckBoxPreference) findPreference(SETTINGS_COLORMODE);
         CheckBoxPreference cbDrawerTabs = (CheckBoxPreference) findPreference(SETTINGS_DRAWERTABS);
 
@@ -72,6 +74,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
         cbAds.setOnPreferenceChangeListener(this);
         cbImages.setOnPreferenceChangeListener(this);
         cbJsScript.setOnPreferenceChangeListener(this);
+        cbScreenshots.setOnPreferenceChangeListener(this);
         cbColorMode.setOnPreferenceChangeListener(this);
         cbDrawerTabs.setOnPreferenceChangeListener(this);
 
@@ -115,6 +118,7 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
 
         cbImages.setChecked(imagesBool);
         cbJsScript.setChecked(enableJSBool);
+        cbScreenshots.setChecked(mPreferenceManager.getAllowScreenshots());
         cbAds.setChecked(mPreferenceManager.getAdBlockEnabled());
         cbColorMode.setChecked(mPreferenceManager.getColorModeEnabled());
         cbDrawerTabs.setChecked(mPreferenceManager.getShowTabsInDrawer(true));
@@ -408,6 +412,9 @@ public class GeneralSettingsFragment extends LightningPreferenceFragment impleme
                 return true;
             case SETTINGS_JAVASCRIPT:
                 mPreferenceManager.setJavaScriptEnabled(checked);
+                return true;
+            case SETTINGS_SCREENSHOTS:
+                mPreferenceManager.setScreenshotsAllowed(checked);
                 return true;
             case SETTINGS_COLORMODE:
                 mPreferenceManager.setColorModeEnabled(checked);

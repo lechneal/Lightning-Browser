@@ -50,6 +50,7 @@ public class PreferenceManager {
         public static final String THEME = "Theme";
         public static final String TEXT_ENCODING = "textEncoding";
         public static final String SHOW_TABS_IN_DRAWER = "showTabsInDrawer";
+        public static final String SCREENSHOTS = "secureFlag";
         public static final String DO_NOT_TRACK = "doNotTrack";
         public static final String IDENTIFYING_HEADERS = "removeIdentifyingHeaders";
         public static final String FINISH_ON_PAUSE = "closeOnPause";
@@ -152,6 +153,8 @@ public class PreferenceManager {
     public boolean getJavaScriptEnabled() {
         return mPrefs.getBoolean(Name.JAVASCRIPT, true);
     }
+
+    public boolean getAllowScreenshots() { return mPrefs.getBoolean(Name.SCREENSHOTS, false);}
 
     public boolean getOverviewModeEnabled() {
         return mPrefs.getBoolean(Name.OVERVIEW_MODE, true);
@@ -273,6 +276,8 @@ public class PreferenceManager {
     public void setCookiesEnabled(boolean enabled) {
         putBoolean(Name.COOKIES_ENABLED, enabled);
     }
+
+    public void setScreenshotsAllowed(boolean allowed) {putBoolean(Name.SCREENSHOTS, allowed);}
 
     public void setShowTabsInDrawer(boolean show) {
         putBoolean(Name.SHOW_TABS_IN_DRAWER, show);

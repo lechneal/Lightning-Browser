@@ -176,5 +176,9 @@
     <string name="tpc_always_disabled">3rd party cookies are always disabled</string>
     <string name="private_data_exit">Clear private data on exit</string>
     <string name="private_data_exit_summary">cookies, web storage, databases</string>
+    <string name="allow_screenshots">Allow screenshots and preview</string>
+    <string name="screenshots_description">allows screenshots and shows the preview in recent apps view</string>
+    <string name="msg_screenshot_title">Attention</string>
+    <string name="msg_screenshot_test">The app must be restarted before the change takes effect</string>
 
 </resources>

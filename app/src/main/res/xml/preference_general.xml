@@ -22,6 +22,11 @@
             android:defaultValue="true"
             android:key="cb_colormode"
             android:title="@string/color_mode" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="cb_screenshots"
+            android:title="@string/allow_screenshots"
+            android:summary="@string/screenshots_description"/>
         <Preference
             android:key="agent"
             android:title="@string/agent" />

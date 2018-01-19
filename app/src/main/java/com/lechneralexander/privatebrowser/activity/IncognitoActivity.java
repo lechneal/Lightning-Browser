@@ -42,10 +42,23 @@ public class IncognitoActivity extends BrowserActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Disable preview screenshot in recent apps!
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        if (mPreferences.getAllowScreenshots() == false) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        } else {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        }
         // Delete all private data as it cannot be guaranteed this was called (e.g. closing app in recent apps)
         this.performExitCleanUp();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mPreferences.getAllowScreenshots() == false) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        } else {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        }
     }
 
     @Override
