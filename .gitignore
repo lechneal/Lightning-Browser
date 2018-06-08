@@ -49,6 +49,7 @@ out
 .settings/
 *.swp
 *~
+app/release/*
 
 # Source:
 # https://raw.githubusercontent.com/github/gitignore/master/Android.gitignore
