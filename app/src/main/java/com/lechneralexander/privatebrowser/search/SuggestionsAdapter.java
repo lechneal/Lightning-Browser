@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ import com.lechneralexander.privatebrowser.preference.PreferenceManager;
 import com.lechneralexander.privatebrowser.utils.ThemeUtils;
 
 public class SuggestionsAdapter extends BaseAdapter implements Filterable, SuggestionsResult {
+
+    private static long timestamp = System.currentTimeMillis();
 
     private static final String TAG = SuggestionsAdapter.class.getSimpleName();
 
@@ -212,37 +215,31 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable, Sugge
         @NonNull
         @Override
         protected FilterResults performFiltering(@Nullable CharSequence constraint) {
+            timestamp = System.currentTimeMillis();
             FilterResults results = new FilterResults();
             if (constraint == null) {
+                results.count = 0;
                 return results;
             }
             String query = constraint.toString().toLowerCase(Locale.getDefault());
-            if (mUseGoogle && !mIncognito && !mIsExecuting) {
-                mIsExecuting = true;
-                new RetrieveSuggestionsTask(query, SuggestionsAdapter.this, BrowserApp.get(mContext)).executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
-            }
-
-            int counter = 0;
-            synchronized (mBookmarks) {
-                mBookmarks.clear();
-                synchronized (SuggestionsAdapter.this) {
-                    for (int n = 0; n < mAllBookmarks.size(); n++) {
-                        if (counter >= 5) {
-                            break;
-                        }
-                        if (mAllBookmarks.get(n).getTitle().toLowerCase(Locale.getDefault())
-                                .startsWith(query)) {
-                            mBookmarks.add(mAllBookmarks.get(n));
-                            counter++;
-                        } else if (mAllBookmarks.get(n).getUrl().contains(query)) {
-                            mBookmarks.add(mAllBookmarks.get(n));
-                            counter++;
-                        }
-                    }
+//            if (mUseGoogle && !mIncognito && !mIsExecuting) {
+//                mIsExecuting = true;
+//                new RetrieveSuggestionsTask(query, SuggestionsAdapter.this, BrowserApp.get(mContext)).executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
+//            }
+            ArrayList<HistoryItem> filteredResults = new ArrayList<>();
+            int maxSize = Math.min(mAllBookmarks.size(), MAX_SUGGESTIONS);
+            for (int n = 0; n < maxSize ; n++) {
+                if (mAllBookmarks.get(n).getTitle().toLowerCase(Locale.getDefault())
+                        .startsWith(query)) {
+                    filteredResults.add(mAllBookmarks.get(n));
+                } else if (mAllBookmarks.get(n).getUrl().contains(query)) {
+                    filteredResults.add(mAllBookmarks.get(n));
                 }
             }
 
-            results.count = 1;
+//            Collections.sort(filteredResults, sComparator);
+            results.values = filteredResults;
+            results.count = ((List)results.values).size();
             return results;
         }
 
@@ -255,11 +252,12 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable, Sugge
         protected void publishResults(CharSequence constraint, FilterResults results) {
             synchronized (mFilteredList) {
                 mFilteredList.clear();
-                List<HistoryItem> filtered = getFilteredList();
-                Collections.sort(filtered, sComparator);
-                mFilteredList.addAll(filtered);
+                if (results.count > 0) {
+                    mFilteredList.addAll((List<HistoryItem>) results.values);
+                }
             }
             notifyDataSetChanged();
+            Log.w(TAG, "publishResults: Time: " + (System.currentTimeMillis() - timestamp));
         }
 
     }
@@ -281,32 +279,8 @@ public class SuggestionsAdapter extends BaseAdapter implements Filterable, Sugge
     }
 
     @NonNull
-    private synchronized List<HistoryItem> getFilteredList() {
-        List<HistoryItem> list = new ArrayList<>(5);
-        synchronized (mBookmarks) {
-            synchronized (mHistory) {
-                synchronized (mSuggestions) {
-                    Iterator<HistoryItem> bookmark = mBookmarks.iterator();
-                    Iterator<HistoryItem> history = mHistory.iterator();
-                    Iterator<HistoryItem> suggestion = mSuggestions.listIterator();
-                    while (list.size() < MAX_SUGGESTIONS) {
-                        if (!bookmark.hasNext() && !suggestion.hasNext() && !history.hasNext()) {
-                            return list;
-                        }
-                        if (bookmark.hasNext()) {
-                            list.add(bookmark.next());
-                        }
-                        if (suggestion.hasNext() && list.size() < MAX_SUGGESTIONS) {
-                            list.add(suggestion.next());
-                        }
-                        if (history.hasNext() && list.size() < MAX_SUGGESTIONS) {
-                            list.add(history.next());
-                        }
-                    }
-                }
-            }
-        }
-        return list;
+    private List<HistoryItem> getFilteredList() {
+        return mBookmarks.subList(0, Math.min(MAX_SUGGESTIONS, mBookmarks.size()));
     }
 
     private static class SuggestionsComparator implements Comparator<HistoryItem> {
