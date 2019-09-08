@@ -91,7 +91,7 @@ public class UrlUtils {
             String scheme = matcher.group(1);
             String lcScheme = scheme.toLowerCase();
             if (!lcScheme.equals(scheme)) {
-                inUrl = lcScheme + matcher.group(2);
+                    inUrl = lcScheme + matcher.group(2);
             }
             if (hasSpace && Patterns.WEB_URL.matcher(inUrl).matches()) {
                 inUrl = inUrl.replace(" ", "%20");
@@ -100,7 +100,11 @@ public class UrlUtils {
         }
         if (!hasSpace) {
             if (Patterns.WEB_URL.matcher(inUrl).matches()) {
-                return URLUtil.guessUrl(inUrl);
+                String guessedUrl = URLUtil.guessUrl(inUrl);
+                if (guessedUrl.startsWith("http:")) {
+                    return guessedUrl.replace("http:", "https:");
+                }
+                return guessedUrl;
             }
         }
         if (canBeSearch) {

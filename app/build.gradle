@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.1'
 
     defaultConfig {
         applicationId "com.lechneralexander.privatebrowser"
         minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 40
-        versionName "2.4.5"
+        targetSdkVersion 29
+        versionCode 43
+        versionName "2.4.6"
     }
 
     buildTypes {
@@ -24,16 +24,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles 'proguard-project.txt'
-        }
-    }
-
-    flavorDimensions "experience"
-    productFlavors {
-        instant {
-            versionCode 41
-        }
-        installed {
-            versionCode 42
         }
     }
 
