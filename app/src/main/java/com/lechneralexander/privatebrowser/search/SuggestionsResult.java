@@ -1,6 +1,6 @@
 package com.lechneralexander.privatebrowser.search;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.List;
 

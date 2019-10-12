@@ -1,7 +1,7 @@
 package com.lechneralexander.privatebrowser.bus;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 public final class BrowserEvents {
 

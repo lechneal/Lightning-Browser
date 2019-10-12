@@ -3,7 +3,7 @@ package com.lechneralexander.privatebrowser.app;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.webkit.WebView;
 
 import com.squareup.otto.Bus;

@@ -1,6 +1,6 @@
 package com.lechneralexander.privatebrowser.react;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface Action<T> {
     /**
