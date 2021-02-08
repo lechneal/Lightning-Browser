@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient.CustomViewCallback;
+import android.webkit.WebView;
 
 import com.lechneralexander.privatebrowser.activity.TabsManager;
 import com.lechneralexander.privatebrowser.view.LightningView;
@@ -40,7 +41,7 @@ public interface UIController {
 
     void onHideCustomView();
 
-    void onCreateWindow(Message resultMsg);
+    void onCreateWindow(WebView view, Message resultMsg);
 
     void onCloseWindow(LightningView view);
 

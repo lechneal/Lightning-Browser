@@ -1789,24 +1789,21 @@ public abstract class BrowserActivity extends ThemableBrowserActivity implements
      * Basically this handles the event that JavaScript needs to create
      * a popup.
      *
+     * @param view
      * @param resultMsg the transport message used to send the URL to
-     *                  the newly created WebView.
      */
     @Override
-    public synchronized void onCreateWindow(Message resultMsg) {
+    public synchronized void onCreateWindow(WebView view, Message resultMsg) {
         if (resultMsg == null) {
             return;
         }
-        if (newTab("", true)) {
-            LightningView newTab = mTabsManager.getTabAtPosition(mTabsManager.size() - 1);
-            if (newTab != null) {
-                final WebView webView = newTab.getWebView();
-                if (webView != null) {
-                    WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
-                    transport.setWebView(webView);
-                    resultMsg.sendToTarget();
-                }
-            }
+        try {
+            WebView.HitTestResult result = view.getHitTestResult();
+            String data = result.getExtra();
+            String uri = Uri.parse(data).toString();
+            newTab(uri, true);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to open new window", e);
         }
     }
 

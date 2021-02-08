@@ -126,7 +126,7 @@ class LightningChromeClient extends WebChromeClient {
     @Override
     public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture,
                                   Message resultMsg) {
-        mUIController.onCreateWindow(resultMsg);
+        mUIController.onCreateWindow(view, resultMsg);
         return true;
     }
 
